@@ -53,6 +53,7 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
+        
         .login-container .input-group .icon {
             position: absolute;
             top: 50%;
