@@ -38,7 +38,7 @@
         <div class="lg:flex-grow mt-5 md:mt-0 md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h2 class="text-3xl font-bold leading-tight text-gray-900 mb-4">Persandian, Tidak Sekedar Sandi</h2>
             <p class="leading-relaxed text-gray-700">
-                Secara umum, urusan persandian dan keamanan informasi di laksanakan Bidang Persandian dan Keamanan Informasi Dinas Komunikasi Informatika Statistik dan Persandian Morowali, dimana meliputi kegiatan pengamanan data/informasi yang dilaksanakan dengan menerapkan konsep, teori, seni dan ilmu kripto beserta ilmu pendukung lainnya sehingga terjaganya kerahasiaan, keaslian, keutuhan, ketersediaan dan kenirsangkalan informasi. Kegiatan urusan persandian dan keamanan informasi pada Pemerintah Daerah mengacu pada kebijakan Badan Siber dan Sandi Negara (BSSN).
+                Secara umum, urusan persandian dan keamanan informasi di laksanakan Bidang Persandian dan Keamanan Informasi Dinas Komunikasi Informatika Statistik dan Persandian Cimahi, dimana meliputi kegiatan pengamanan data/informasi yang dilaksanakan dengan menerapkan konsep, teori, seni dan ilmu kripto beserta ilmu pendukung lainnya sehingga terjaganya kerahasiaan, keaslian, keutuhan, ketersediaan dan kenirsangkalan informasi. Kegiatan urusan persandian dan keamanan informasi pada Pemerintah Daerah mengacu pada kebijakan Badan Siber dan Sandi Negara (BSSN).
             </p>
         </div>
     </div>
