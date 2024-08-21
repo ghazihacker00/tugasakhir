@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ESignRequest;
+use App\Models\ApiTTERequest;
 use Illuminate\Support\Str;
 
-class ESignController extends Controller
+class ApiTTEController extends Controller
 {
     public function create()
     {
-        return view('e_sign.create');
+        return view('api_tte.create');
     }
 
     public function store(Request $request)
@@ -30,23 +30,17 @@ class ESignController extends Controller
         ]);
 
         // Membuat kode tiket
-        $kodeTiket = 'A-' . Str::upper(Str::random(4)) . '-' . Str::upper(Str::random(4)) . '-' . Str::upper(Str::random(4));
+        $kodeTiket = 'D-' . strtoupper(Str::random(4)) . '-' . strtoupper(Str::random(4)) . '-' . strtoupper(Str::random(4));
 
         // Menyimpan file surat permohonan
-        $suratPermohonanPath = null;
-        if ($request->hasFile('surat_permohonan')) {
-            $suratPermohonanPath = $request->file('surat_permohonan')->storeAs(
-                'surat_permohonan',
-                $request->file('surat_permohonan')->getClientOriginalName(),
-                'public'
-            );
-            \Log::info('File uploaded successfully: ' . $suratPermohonanPath);
-        } else {
-            \Log::warning('File upload failed.');
-        }
+        $suratPermohonanPath = $request->file('surat_permohonan') ? $request->file('surat_permohonan')->storeAs(
+            'surat_permohonan',
+            $request->file('surat_permohonan')->getClientOriginalName(),
+            'public'
+        ) : null;
 
         // Menyimpan data ke database
-        $eSignRequest = ESignRequest::create([
+        ApiTTERequest::create([
             'nama_lengkap' => $request->nama_lengkap,
             'nik_nip' => $request->nik_nip,
             'jabatan' => $request->jabatan,
@@ -61,13 +55,12 @@ class ESignController extends Controller
             'status' => 'new',
         ]);
 
-        // Redirect ke halaman tiket
-        return redirect()->route('e-sign.ticket', ['kode_tiket' => $kodeTiket]);
+        return redirect()->route('api-tte.ticket', ['kode_tiket' => $kodeTiket]);
     }
 
     public function showTicket($kode_tiket)
     {
-        $eSignRequest = ESignRequest::where('kode_tiket', $kode_tiket)->firstOrFail();
-        return view('e_sign.ticket', compact('eSignRequest'));
+        $apiTTERequest = ApiTTERequest::where('kode_tiket', $kode_tiket)->firstOrFail();
+        return view('api_tte.ticket', compact('apiTTERequest'));
     }
 }

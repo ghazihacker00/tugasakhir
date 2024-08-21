@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ESignRequest;
 use App\Models\EmailRequest;
 use App\Models\VulnerabilityAssessmentRequest;
+use App\Models\ApiTTERequest; // Tambahkan model ini
 
 class CekTiketController extends Controller
 {
@@ -40,8 +41,13 @@ class CekTiketController extends Controller
             return view('cek-tiket.result', ['request' => $vulnerabilityRequest, 'type' => 'vulnerability-assessment']);
         }
 
+        // Cari di tabel API TTE
+        $apiTTERequest = ApiTTERequest::where('kode_tiket', $kodeTiket)->first();
+        if ($apiTTERequest) {
+            return view('cek-tiket.result', ['request' => $apiTTERequest, 'type' => 'api-tte']);
+        }
+
         // Jika tidak ditemukan
         return redirect()->back()->withErrors(['kode_tiket' => 'Kode tiket tidak ditemukan.']);
     }
 }
-

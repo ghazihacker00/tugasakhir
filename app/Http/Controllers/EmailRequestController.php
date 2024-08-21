@@ -14,24 +14,32 @@ class EmailRequestController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
-            'nama_lengkap' => 'required',
-            'nik_nip' => 'required',
-            'jabatan' => 'required',
-            'pangkat_golongan_eselon' => 'required',
-            'dinas_unit_kerja' => 'required',
-            'instansi' => 'required',
-            'email_pemohon' => 'required|email',
-            'telepon' => 'required',
-            'alamat' => 'required',
-            'lampiran' => 'file|nullable',
+            'nama_lengkap' => 'required|string|max:255',
+            'nik_nip' => 'required|string|max:255',
+            'jabatan' => 'required|string|max:255',
+            'pangkat_golongan_eselon' => 'required|string|max:255',
+            'dinas_unit_kerja' => 'required|string|max:255',
+            'instansi' => 'required|string|max:255',
+            'email_pemohon' => 'required|email|max:255',
+            'telepon' => 'required|string|max:255',
+            'alamat' => 'required|string',
+            'lampiran' => 'nullable|file|mimes:pdf,jpg,png,jpeg,docx,doc|max:2048',
         ]);
 
-        $lampiranPath = $request->file('lampiran') ? $request->file('lampiran')->store('public/lampiran') : null;
+        // Menyimpan file lampiran
+        $lampiranPath = $request->file('lampiran') ? $request->file('lampiran')->storeAs(
+            'lampiran',
+            $request->file('lampiran')->getClientOriginalName(),
+            'public'
+        ) : null;
 
+        // Membuat kode tiket
         $kodeTiket = 'C-' . substr(md5(uniqid(mt_rand(), true)), 0, 4) . '-' . substr(md5(uniqid(mt_rand(), true)), 4, 4) . '-' . substr(md5(uniqid(mt_rand(), true)), 8, 4);
 
-        $emailRequest = EmailRequest::create([
+        // Menyimpan data ke database
+        EmailRequest::create([
             'kode_tiket' => $kodeTiket,
             'nama_lengkap' => $request->nama_lengkap,
             'nik_nip' => $request->nik_nip,

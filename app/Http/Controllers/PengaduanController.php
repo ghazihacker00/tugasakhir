@@ -14,6 +14,7 @@ class PengaduanController extends Controller
 
     public function store(Request $request)
     {
+        // Validasi input
         $request->validate([
             'judul' => 'required|string|max:255',
             'nama' => 'required|string|max:255',
@@ -23,11 +24,17 @@ class PengaduanController extends Controller
             'layanan' => 'required|string|max:255',
             'telepon' => 'required|string|max:255',
             'pesan' => 'required|string',
-            'lampiran' => 'nullable|file|mimes:jpeg,png,pdf,doc,docx|max:2048',
+            'lampiran' => 'nullable|file|mimes:pdf,jpg,png,jpeg,docx,doc|max:2048',
         ]);
 
-        $lampiranPath = $request->file('lampiran') ? $request->file('lampiran')->store('public/lampiran') : null;
+        // Menyimpan file lampiran
+        $lampiranPath = $request->file('lampiran') ? $request->file('lampiran')->storeAs(
+            'lampiran',
+            $request->file('lampiran')->getClientOriginalName(),
+            'public'
+        ) : null;
 
+        // Menyimpan data ke database
         Pengaduan::create([
             'judul' => $request->judul,
             'nama' => $request->nama,

@@ -3,7 +3,7 @@
         <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
             <div class="flex justify-start lg:w-0 lg:flex-1 items-center">
                 <div class="rounded-full bg-white p-2 mr-3">
-                    <img src="/img/logo_resmi/cimahi.png" alt="Logo Persandian Kota Cimahi" class="h-9 w-auto">
+                    <img src="/img/logo resmi/cimahi.png" alt="Logo Persandian Kota Cimahi" class="h-9 w-auto">
                 </div>
                 <a href="/" class="text-lg font-semibold text-white hover:text-gray-900">
                     Persandian Kota Cimahi
