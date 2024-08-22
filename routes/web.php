@@ -120,6 +120,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/admin/api-tte/{id}/rejected', [App\Http\Controllers\Admin\ApiTTEController::class, 'rejected'])->name('admin.api-tte.rejected');
         Route::post('/admin/api-tte/{id}/rejected', [App\Http\Controllers\Admin\ApiTTEController::class, 'submitRejectionReason'])->name('admin.api-tte.submitRejectionReason');
 
+        Route::get('/admin/vulnerability-assessment/{id}/rejected', [App\Http\Controllers\Admin\VulnerabilityAssessmentController::class, 'rejected'])->name('admin.vulnerability-assessment.rejected');
+        Route::post('/admin/vulnerability-assessment/{id}/rejected', [App\Http\Controllers\Admin\VulnerabilityAssessmentController::class, 'submitRejectionReason'])->name('admin.vulnerability-assessment.submitRejectionReason');
+
+
 
 
 
