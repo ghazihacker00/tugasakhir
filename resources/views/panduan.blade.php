@@ -7,6 +7,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
+
     @include('components.header')
 
     <div class="py-10 flex justify-center">
@@ -31,7 +32,9 @@
                             <td class="py-3 px-6">{{ $file->name }}</td>
                             <td class="py-3 px-6 text-center">
                                 <a href="{{ $file->path }}" download class="group relative text-blue-500 hover:text-blue-700 transition duration-300">
-                                   
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m8-8l-8 8-8-8"/>
+                                    </svg>
                                     <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-8 px-2 py-1 text-xs text-white bg-gray-900 rounded opacity-0 group-hover:opacity-100 group-hover:translate-y-2 transition duration-300">Unduh</span>
                                 </a>
                             </td>
@@ -44,5 +47,8 @@
     </div>
 
     @include('components.footer')
+
+    <!-- Alpine.js CDN -->
+    <script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
 </body>
 </html>

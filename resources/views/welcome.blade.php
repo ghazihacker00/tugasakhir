@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Persandian kota cimahi</title>
+    <title>Home Persandian Kota Cimahi</title>
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
@@ -11,7 +11,7 @@
 @include('components.header')
 
 <section class="text-gray-600 body-font bg-white dark:bg-slate-900 py-12">
-    <div class="container mx-auto flex md:px-24 md:py-10 md:flex-row flex-col items-center">
+    <div class="container mx-auto flex md:flex-row flex-col-reverse items-center">
         <div class="lg:flex-grow mt-5 md:mt-0 md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 class="text-2xl font-extrabold leading-9 tracking-tight mb-3 text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-normal">
                 Persandian dan Keamanan Informasi (DILANSANDI) <br>CIMAHI
@@ -20,48 +20,48 @@
                 Layanan Persandian Terpadu satu atap CISRT - ESIGN / TTE - Vulnerability Assessment - Pentest - PHKS / JKS - Secure Chat / Mail - SSL - INDEKS KAMI
             </p>
             <div class="flex justify-center">
-                <a href="#section-sandi" class="inline-flex text-white bg-emerald-600 border-0 py-2 px-6 focus:outline-none hover:bg-emerald-600 rounded text-lg">Read More</a>
+                <a href="#section-sandi" class="inline-flex text-white bg-emerald-600 border-0 py-2 px-6 focus:outline-none hover:bg-emerald-700 rounded text-lg">Read More</a>
                 <a href="#section-layanan" class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Layanan</a>
             </div>
         </div>
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-3/6">
-            <img class="object-cover object-center rounded" alt="hero" src="img/CSIRT (7) FIX.png">
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-6 md:mb-0">
+            <img class="object-cover object-center rounded w-full h-full" alt="hero" src="img/CSIRT (7) FIX.png">
         </div>
     </div>
 </section>
 
 <section id="section-sandi" class="text-gray-600 body-font bg-white py-12">
-    <div class="container mx-auto flex md:px-24 md:py-10 md:flex-row flex-col items-center">
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-3/6">
-            <img class="object-cover object-center rounded" alt="security" src="img/Update SOC.png"> <!-- Ganti dengan gambar yang sesuai -->
+    <div class="container mx-auto flex md:flex-row flex-col items-center">
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-6 md:mb-0">
+            <img class="object-cover object-center rounded w-full h-full" alt="security" src="img/Update SOC.png">
         </div>
         <div class="lg:flex-grow mt-5 md:mt-0 md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h2 class="text-3xl font-bold leading-tight text-gray-900 mb-4">Persandian, Tidak Sekedar Sandi</h2>
             <p class="leading-relaxed text-gray-700">
-                Secara umum, urusan persandian dan keamanan informasi di laksanakan Bidang Persandian dan Keamanan Informasi Dinas Komunikasi Informatika Statistik dan Persandian Cimahi, dimana meliputi kegiatan pengamanan data/informasi yang dilaksanakan dengan menerapkan konsep, teori, seni dan ilmu kripto beserta ilmu pendukung lainnya sehingga terjaganya kerahasiaan, keaslian, keutuhan, ketersediaan dan kenirsangkalan informasi. Kegiatan urusan persandian dan keamanan informasi pada Pemerintah Daerah mengacu pada kebijakan Badan Siber dan Sandi Negara (BSSN).
+                Secara umum, urusan persandian dan keamanan informasi dilaksanakan Bidang Persandian dan Keamanan Informasi Dinas Komunikasi Informatika Statistik dan Persandian Cimahi, dimana meliputi kegiatan pengamanan data/informasi yang dilaksanakan dengan menerapkan konsep, teori, seni dan ilmu kripto beserta ilmu pendukung lainnya sehingga terjaganya kerahasiaan, keaslian, keutuhan, ketersediaan, dan kenirsangkalan informasi. Kegiatan urusan persandian dan keamanan informasi pada Pemerintah Daerah mengacu pada kebijakan Badan Siber dan Sandi Negara (BSSN).
             </p>
         </div>
     </div>
 </section>
 
 <section id="section-e-sign" class="text-gray-600 body-font bg-white dark:bg-slate-900 py-12">
-    <div class="container mx-auto flex md:px-24 md:py-10 md:flex-row flex-col items-center">
+    <div class="container mx-auto flex md:flex-row flex-col-reverse items-center">
         <div class="lg:flex-grow mt-5 md:mt-0 md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h2 class="text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 mb-4">E-Sign Tanda Tangan Elektronik</h2>
             <p class="leading-relaxed dark:text-gray-300">
                 Tanda Tangan Elektronik memberikan keabsahan yang sama dengan tanda tangan manual. Dengan layanan ini, Anda dapat menandatangani dokumen secara digital dengan keamanan yang terjamin dan mudah digunakan.
             </p>
         </div>
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-3/6">
-            <img class="object-cover object-center rounded" alt="e-sign" src="img/Jaring Komunikasi Sandi.png" style="width: 60%;"> <!-- Ganti dengan gambar yang sesuai -->
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-6 md:mb-0">
+            <img class="object-cover object-center rounded w-full h-full" alt="e-sign" src="img/Peningkatan SDM.png">
         </div>
     </div>
 </section>
 
 <section id="section-pentest" class="text-gray-600 body-font bg-white py-12">
-    <div class="container mx-auto flex md:px-24 md:py-10 md:flex-row flex-col items-center">
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-3/6">
-            <img class="object-cover object-center rounded" alt="pentest" src="img/ITSA KAMI.png" style="width: 130%;"> <!-- Ganti dengan gambar yang sesuai -->
+    <div class="container mx-auto flex md:flex-row flex-col items-center">
+        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-6 md:mb-0">
+            <img class="object-cover object-center rounded w-full h-full" alt="pentest" src="img/ITSA KAMI.png">
         </div>
         <div class="lg:flex-grow mt-5 md:mt-0 md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h2 class="text-3xl font-bold leading-tight text-gray-900 mb-4">Vulnerability Assessment dan Pentest</h2>
@@ -155,5 +155,8 @@
 </section>
 
 @include('components.footer')
+
+<!-- Alpine.js CDN -->
+<script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
 </body>
 </html>
