@@ -43,23 +43,9 @@
                         <label for="pangkat_golongan_eselon" class="block text-sm font-medium text-gray-700">Pangkat/Golongan/Eselon</label>
                         <select name="pangkat_golongan_eselon" id="pangkat_golongan_eselon" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('pangkat_golongan_eselon') border-red-500 @enderror">
                             <option value="">Pilih Pangkat/Golongan/Eselon</option>
+                            <!-- Tambahkan opsi pangkat/golongan/eselon lainnya sesuai kebutuhan -->
                             <option value="Juru Muda I/a" {{ old('pangkat_golongan_eselon') == 'Juru Muda I/a' ? 'selected' : '' }}>Juru Muda I/a</option>
-                            <option value="Juru Muda Tingkat I I/b" {{ old('pangkat_golongan_eselon') == 'Juru Muda Tingkat I I/b' ? 'selected' : '' }}>Juru Muda Tingkat I I/b</option>
-                            <option value="Juru I/c" {{ old('pangkat_golongan_eselon') == 'Juru I/c' ? 'selected' : '' }}>Juru I/c</option>
-                            <option value="Juru Tingkat I I/d" {{ old('pangkat_golongan_eselon') == 'Juru Tingkat I I/d' ? 'selected' : '' }}>Juru Tingkat I I/d</option>
-                            <option value="Pengatur Muda II/a" {{ old('pangkat_golongan_eselon') == 'Pengatur Muda II/a' ? 'selected' : '' }}>Pengatur Muda II/a</option>
-                            <option value="Pengatur Muda Tingkat I II/b" {{ old('pangkat_golongan_eselon') == 'Pengatur Muda Tingkat I II/b' ? 'selected' : '' }}>Pengatur Muda Tingkat I II/b</option>
-                            <option value="Pengatur II/c" {{ old('pangkat_golongan_eselon') == 'Pengatur II/c' ? 'selected' : '' }}>Pengatur II/c</option>
-                            <option value="Pengatur Tingkat I II/d" {{ old('pangkat_golongan_eselon') == 'Pengatur Tingkat I II/d' ? 'selected' : '' }}>Pengatur Tingkat I II/d</option>
-                            <option value="Penata Muda III/a" {{ old('pangkat_golongan_eselon') == 'Penata Muda III/a' ? 'selected' : '' }}>Penata Muda III/a</option>
-                            <option value="Penata Muda Tingkat I III/b" {{ old('pangkat_golongan_eselon') == 'Penata Muda Tingkat I III/b' ? 'selected' : '' }}>Penata Muda Tingkat I III/b</option>
-                            <option value="Penata III/c" {{ old('pangkat_golongan_eselon') == 'Penata III/c' ? 'selected' : '' }}>Penata III/c</option>
                             <option value="Penata Tingkat I III/d" {{ old('pangkat_golongan_eselon') == 'Penata Tingkat I III/d' ? 'selected' : '' }}>Penata Tingkat I III/d</option>
-                            <option value="Pembina IV/a" {{ old('pangkat_golongan_eselon') == 'Pembina IV/a' ? 'selected' : '' }}>Pembina IV/a</option>
-                            <option value="Pembina Tingkat I IV/b" {{ old('pangkat_golongan_eselon') == 'Pembina Tingkat I IV/b' ? 'selected' : '' }}>Pembina Tingkat I IV/b</option>
-                            <option value="Pembina Utama Muda IV/c" {{ old('pangkat_golongan_eselon') == 'Pembina Utama Muda IV/c' ? 'selected' : '' }}>Pembina Utama Muda IV/c</option>
-                            <option value="Pembina Utama Madya IV/d" {{ old('pangkat_golongan_eselon') == 'Pembina Utama Madya IV/d' ? 'selected' : '' }}>Pembina Utama Madya IV/d</option>
-                            <option value="Pembina Utama IV/e" {{ old('pangkat_golongan_eselon') == 'Pembina Utama IV/e' ? 'selected' : '' }}>Pembina Utama IV/e</option>
                             <option value="lainnya" {{ old('pangkat_golongan_eselon') == 'lainnya' ? 'selected' : '' }}>lainnya</option>
                         </select>
                         @error('pangkat_golongan_eselon')
@@ -70,27 +56,8 @@
                         <label for="dinas_unit_kerja" class="block text-sm font-medium text-gray-700">Dinas/Unit Kerja</label>
                         <select name="dinas_unit_kerja" id="dinas_unit_kerja" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('dinas_unit_kerja') border-red-500 @enderror">
                             <option value="">Pilih Dinas/Unit Kerja</option>
+                            <!-- Tambahkan opsi dinas/unit kerja lainnya sesuai kebutuhan -->
                             <option value="Sekretariat Daerah" {{ old('dinas_unit_kerja') == 'Sekretariat Daerah' ? 'selected' : '' }}>Sekretariat Daerah</option>
-                            <option value="Sekretariat DPRD" {{ old('dinas_unit_kerja') == 'Sekretariat DPRD' ? 'selected' : '' }}>Sekretariat DPRD</option>
-                            <option value="Inspektorat" {{ old('dinas_unit_kerja') == 'Inspektorat' ? 'selected' : '' }}>Inspektorat</option>
-                            <option value="Dinas Pendidikan" {{ old('dinas_unit_kerja') == 'Dinas Pendidikan' ? 'selected' : '' }}>Dinas Pendidikan</option>
-                            <option value="Dinas Kesehatan" {{ old('dinas_unit_kerja') == 'Dinas Kesehatan' ? 'selected' : '' }}>Dinas Kesehatan</option>
-                            <option value="Dinas Pekerjaan Umum dan Penataan Ruang" {{ old('dinas_unit_kerja') == 'Dinas Pekerjaan Umum dan Penataan Ruang' ? 'selected' : '' }}>Dinas Pekerjaan Umum dan Penataan Ruang</option>
-                            <option value="Dinas Perumahan dan Kawasan Permukiman" {{ old('dinas_unit_kerja') == 'Dinas Perumahan dan Kawasan Permukiman' ? 'selected' : '' }}>Dinas Perumahan dan Kawasan Permukiman</option>
-                            <option value="Satuan Polisi Pamong Praja dan Pemadam Kebakaran" {{ old('dinas_unit_kerja') == 'Satuan Polisi Pamong Praja dan Pemadam Kebakaran' ? 'selected' : '' }}>Satuan Polisi Pamong Praja dan Pemadam Kebakaran</option>
-                            <option value="Dinas Sosial" {{ old('dinas_unit_kerja') == 'Dinas Sosial' ? 'selected' : '' }}>Dinas Sosial</option>
-                            <option value="Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana" {{ old('dinas_unit_kerja') == 'Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana' ? 'selected' : '' }}>Dinas Pemberdayaan Perempuan dan Perlindungan Anak, Pengendalian Penduduk dan Keluarga Berencana</option>
-                            <option value="Dinas Perdagangan, Koperasi, Usaha Kecil dan Menengah, dan Perindustrian" {{ old('dinas_unit_kerja') == 'Dinas Perdagangan, Koperasi, Usaha Kecil dan Menengah, dan Perindustrian' ? 'selected' : '' }}>Dinas Perdagangan, Koperasi, Usaha Kecil dan Menengah, dan Perindustrian</option>
-                            <option value="Dinas Perhubungan" {{ old('dinas_unit_kerja') == 'Dinas Perhubungan' ? 'selected' : '' }}>Dinas Perhubungan</option>
-                            <option value="Dinas Kependudukan dan Pencatatan Sipil" {{ old('dinas_unit_kerja') == 'Dinas Kependudukan dan Pencatatan Sipil' ? 'selected' : '' }}>Dinas Kependudukan dan Pencatatan Sipil</option>
-                            <option value="Dinas Tenaga Kerja" {{ old('dinas_unit_kerja') == 'Dinas Tenaga Kerja' ? 'selected' : '' }}>Dinas Tenaga Kerja</option>
-                            <option value="Dinas Pangan dan Pertanian" {{ old('dinas_unit_kerja') == 'Dinas Pangan dan Pertanian' ? 'selected' : '' }}>Dinas Pangan dan Pertanian</option>
-                            <option value="Dinas Kebudayaan, Pariwisata, Kepemudaan dan Olahraga" {{ old('dinas_unit_kerja') == 'Dinas Kebudayaan, Pariwisata, Kepemudaan dan Olahraga' ? 'selected' : '' }}>Dinas Kebudayaan, Pariwisata, Kepemudaan dan Olahraga</option>
-                            <option value="Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu" {{ old('dinas_unit_kerja') == 'Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu' ? 'selected' : '' }}>Dinas Penanaman Modal dan Pelayanan Terpadu Satu Pintu</option>
-                            <option value="Dinas Lingkungan Hidup" {{ old('dinas_unit_kerja') == 'Dinas Lingkungan Hidup' ? 'selected' : '' }}>Dinas Lingkungan Hidup</option>
-                            <option value="Dinas Komunikasi dan Informatika" {{ old('dinas_unit_kerja') == 'Dinas Komunikasi dan Informatika' ? 'selected' : '' }}>Dinas Komunikasi dan Informatika</option>
-                            <option value="Dinas Arsip Daerah" {{ old('dinas_unit_kerja') == 'Dinas Arsip Daerah' ? 'selected' : '' }}>Dinas Arsip Daerah</option>
-                            <option value="lainnya" {{ old('dinas_unit_kerja') == 'lainnya' ? 'selected' : '' }}>lainnya</option>
                         </select>
                         @error('dinas_unit_kerja')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>

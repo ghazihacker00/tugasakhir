@@ -1,8 +1,19 @@
 <!-- resources/views/admin/layouts/sidebar.blade.php -->
-<aside class="w-full sm:w-64 bg-gray-900 text-white flex flex-col min-h-screen">
+<aside x-data="{ open: false }" class="w-full sm:w-64 bg-gray-900 text-white flex flex-col min-h-screen">
+    <!-- Mobile Menu Toggle Button -->
+    <div class="sm:hidden flex justify-between items-center p-4">
+        <span class="text-lg font-bold">MENU</span>
+        <button @click="open = !open" class="text-gray-200 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path x-show="!open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                <path x-show="open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+
     <!-- Menu Section -->
-    <nav class="flex-grow">
-        <div class="px-6 py-4 text-lg font-bold">
+    <nav :class="{ 'hidden': !open, 'block': open }" class="flex-grow sm:block">
+        <div class="px-6 py-4 text-lg font-bold hidden sm:block">
             <center>MENU</center>
         </div>
         <ul class="space-y-2 px-4">
@@ -55,10 +66,10 @@
                 </a>
             </li>
         </ul>
-        <div class="px-10 py-2 mt-0" style="margin-top: 200px;">
+        <div class="px-10 py-2 mt-0">
             <div class="px-6 py-4 mt-6">
                 <div class="flex justify-center mb-4">
-                    <img src="/img/indeks KAMI official.png" alt="Logo" class="h-16 w-16" style="width: 100%; height: auto;">
+                    <img src="/img/indeks KAMI official.png" alt="Logo" class="h-16 w-16">
                 </div>
                 <p class="text-center text-gray-500 text-sm">© 2024 Admin Panel</p>
             </div>

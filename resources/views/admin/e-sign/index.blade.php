@@ -30,12 +30,12 @@
         <table class="min-w-full">
             <thead class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
                 <tr>
-                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" onclick="sortTable(0)">Nama Lengkap <span id="arrow0"></span></th>
-                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" onclick="sortTable(1)">NIK/NIP <span id="arrow1"></span></th>
-                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" onclick="sortTable(2)">Kode Pengajuan <span id="arrow2"></span></th>
-                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" onclick="sortTable(3)">Email <span id="arrow3"></span></th>
-                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" onclick="sortTable(4)">No. Telepon <span id="arrow4"></span></th>
-                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" onclick="sortTable(5)">Status <span id="arrow5"></span></th>
+                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" @click="sortTable(0)">Nama Lengkap <span id="arrow0"></span></th>
+                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" @click="sortTable(1)">NIK/NIP <span id="arrow1"></span></th>
+                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" @click="sortTable(2)">Kode Pengajuan <span id="arrow2"></span></th>
+                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" @click="sortTable(3)">Email <span id="arrow3"></span></th>
+                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" @click="sortTable(4)">No. Telepon <span id="arrow4"></span></th>
+                    <th class="py-4 px-6 text-center font-bold tracking-wider cursor-pointer" @click="sortTable(5)">Status <span id="arrow5"></span></th>
                     <th class="py-4 px-6 text-center font-bold tracking-wider">Berkas</th>
                     <th class="py-4 px-6 text-center font-bold tracking-wider">Aksi</th>
                 </tr>
@@ -57,7 +57,6 @@
                                 <option value="completed" {{ $request->status == 'completed' ? 'selected' : '' }}>Completed</option>
                                 <option value="rejected" {{ $request->status == 'rejected' ? 'selected' : '' }}>Rejected</option>
                             </select>
-
                         </form>
                     </td>
                     <td class="py-4 px-6 text-center">

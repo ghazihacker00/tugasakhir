@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Dashboard')</title>
     @vite('resources/css/app.css')
+    <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body class="bg-gray-100 flex flex-col min-h-screen">
+<body class="bg-gray-100 flex flex-col min-h-screen" x-data="{ darkMode: localStorage.getItem('theme') === 'dark' }" x-init="$watch('darkMode', value => localStorage.setItem('theme', value ? 'dark' : 'light'))" :class="{ 'dark': darkMode }">
 
     <!-- Navbar -->
     @include('admin.layouts.navbar')
@@ -24,7 +25,7 @@
 
     @vite('resources/js/app.js')
 
-    <!-- Tambahkan di bawah script utama di master.blade.php -->
+    <!-- Dark Mode Toggle Script -->
     <script>
         const themeToggleBtn = document.getElementById('theme-toggle');
         const currentTheme = localStorage.getItem('theme');
