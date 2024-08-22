@@ -40,8 +40,8 @@
                     <th class="py-4 px-6 text-center font-bold tracking-wider">Aksi</th>
                 </tr>
             </thead>
-            <tbody id="apiTteTableBody" class="bg-white divide-y divide-gray-200">
-                @foreach ($apiTteRequests as $request)
+            <tbody id="apiTTETableBody" class="bg-white divide-y divide-gray-200">
+                @foreach ($apiTTERequests as $request)
                 <tr class="hover:bg-gray-100 transition duration-300 ease-in-out transform">
                     <td class="py-4 px-6 text-center text-gray-900 font-semibold">{{ $request->nama_lengkap }}</td>
                     <td class="py-4 px-6 text-center text-gray-900">{{ $request->nik_nip }}</td>
@@ -53,14 +53,15 @@
                             @csrf
                             <select name="status" onchange="this.form.submit()" class="bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-300">
                                 <option value="new" {{ $request->status == 'new' ? 'selected' : '' }}>Baru</option>
-                                <option value="in_progress" {{ $request->status == 'in_progress' ? 'selected' : '' }}>Dalam Proses</option>
+                                <option value="processed" {{ $request->status == 'processed' ? 'selected' : '' }}>Diproses</option>
                                 <option value="completed" {{ $request->status == 'completed' ? 'selected' : '' }}>Selesai</option>
+                                <option value="rejected" {{ $request->status == 'rejected' ? 'selected' : '' }}>Ditolak</option>
                             </select>
                         </form>
                     </td>
                     <td class="py-4 px-6 text-center">
-                        @if ($request->berkas)
-                            <a href="{{ Storage::url($request->berkas) }}" download class="text-blue-500 hover:underline">Download</a>
+                        @if ($request->surat_permohonan)
+                            <a href="{{ Storage::url($request->surat_permohonan) }}" download class="text-blue-500 hover:underline">Download</a>
                         @else
                             Tidak ada berkas
                         @endif
@@ -91,7 +92,7 @@
 
     <!-- Paginasi -->
     <div class="mt-8">
-        {{ $apiTteRequests->links('pagination::simple-tailwind') }}
+        {{ $apiTTERequests->links('pagination::simple-tailwind') }}
     </div>
 </div>
 
@@ -105,8 +106,8 @@
             .then(html => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
-                const newTbody = doc.querySelector('#apiTteTableBody');
-                document.getElementById('apiTteTableBody').replaceWith(newTbody);
+                const newTbody = doc.querySelector('#apiTTETableBody');
+                document.getElementById('apiTTETableBody').replaceWith(newTbody);
             });
     });
 

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\EmailRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmailRequestController extends Controller
 {
@@ -12,7 +13,6 @@ class EmailRequestController extends Controller
     {
         $search = $request->input('search');
 
-        // Menggunakan paginate() untuk pagination
         $emailRequests = EmailRequest::when($search, function ($query, $search) {
             return $query->where('nama_lengkap', 'like', "%{$search}%")
                         ->orWhere('nik_nip', 'like', "%{$search}%")
@@ -32,23 +32,11 @@ class EmailRequestController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_lengkap' => 'required|string|max:255',
-            'nik_nip' => 'required|string|max:255',
-            'jabatan' => 'required|string|max:255',
-            'pangkat_golongan_eselon' => 'required|string|max:255',
-            'dinas_unit_kerja' => 'required|string|max:255',
-            'instansi' => 'required|string|max:255',
-            'email_pemohon' => 'required|email|max:255',
-            'telepon' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
-        ]);
-
         $emailRequest = EmailRequest::findOrFail($id);
-        $emailRequest->update($request->all());
 
-        return redirect()->route('admin.email.index')
-                         ->with('success', 'Data berhasil diperbarui.');
+        $emailRequest->update($request->except(['_token', '_method', 'id']));
+
+        return redirect()->route('admin.email.index')->with('success', 'Pengajuan Email berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -56,16 +44,64 @@ class EmailRequestController extends Controller
         $emailRequest = EmailRequest::findOrFail($id);
         $emailRequest->delete();
 
-        return redirect()->route('admin.email.index')
-                         ->with('success', 'Data berhasil dihapus.');
+        return redirect()->route('admin.email.index')->with('success', 'Pengajuan Email berhasil dihapus.');
     }
 
     public function updateStatus(Request $request, $id)
     {
         $emailRequest = EmailRequest::findOrFail($id);
-        $emailRequest->update(['status' => $request->input('status')]);
+        $newStatus = $request->input('status');
+        $emailRequest->status = $newStatus;
+        $emailRequest->save();
 
-        return redirect()->route('admin.email.index')
-                         ->with('success', 'Status berhasil diperbarui.');
+        // Kirim notifikasi email kepada user
+        $this->sendStatusUpdateEmail($emailRequest);
+
+        if ($newStatus === 'rejected') {
+            return redirect()->route('admin.email.rejected', $emailRequest->id);
+        }
+
+        return redirect()->route('admin.email.index')->with('success', 'Status pengajuan berhasil diperbarui.');
+    }
+
+    public function rejected($id)
+    {
+        $emailRequest = EmailRequest::findOrFail($id);
+        return view('admin.email.rejected', compact('emailRequest'));
+    }
+
+    public function submitRejectionReason(Request $request, $id)
+    {
+        $request->validate([
+            'reason' => 'required|string|max:1000',
+        ]);
+
+        $emailRequest = EmailRequest::findOrFail($id);
+
+        // Kirim email alasan penolakan
+        Mail::send('emails.email-rejection-reason', [
+            'nama_lengkap' => $emailRequest->nama_lengkap,
+            'kode_tiket' => $emailRequest->kode_tiket,
+            'reason' => $request->input('reason'),
+        ], function ($message) use ($emailRequest) {
+            $message->to($emailRequest->email_pemohon)
+                    ->subject('Alasan Penolakan Pengajuan Email');
+        });
+
+        return redirect()->route('admin.email.index')->with('success', 'Alasan penolakan berhasil dikirim.');
+    }
+
+    private function sendStatusUpdateEmail($emailRequest)
+    {
+        $data = [
+            'nama_lengkap' => $emailRequest->nama_lengkap,
+            'kode_tiket' => $emailRequest->kode_tiket,
+            'status' => $emailRequest->status,
+        ];
+
+        Mail::send('emails.email-status-update', $data, function ($message) use ($emailRequest) {
+            $message->to($emailRequest->email_pemohon)
+                    ->subject('Status Tiket Anda Telah Diperbarui');
+        });
     }
 }

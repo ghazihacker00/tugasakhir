@@ -3,68 +3,105 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\ApiTTERequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ApiTTEController extends Controller
 {
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $apiTteRequests = ApiTTERequest::when($search, function ($query, $search) {
+
+        $apiTTERequests = ApiTTERequest::when($search, function ($query, $search) {
             return $query->where('nama_lengkap', 'like', "%{$search}%")
                         ->orWhere('nik_nip', 'like', "%{$search}%")
                         ->orWhere('kode_tiket', 'like', "%{$search}%")
                         ->orWhere('email_pemohon', 'like', "%{$search}%")
                         ->orWhere('telepon', 'like', "%{$search}%");
-        })->paginate(10); // Menggunakan paginate alih-alih get()
+        })->paginate(10); // Menampilkan 10 data per halaman
 
-        return view('admin.api-tte.index', compact('apiTteRequests', 'search'));
+        return view('admin.api-tte.index', compact('apiTTERequests', 'search'));
     }
-
 
     public function edit($id)
     {
-        $apiTteRequest = ApiTTERequest::findOrFail($id);
-        return view('admin.api-tte.edit', compact('apiTteRequest'));
+        $apiTTERequest = ApiTTERequest::findOrFail($id);
+        return view('admin.api-tte.edit', compact('apiTTERequest'));
     }
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nama_lengkap' => 'required|string|max:255',
-            'nik_nip' => 'required|string|max:255',
-            'jabatan' => 'required|string|max:255',
-            'pangkat_golongan_eselon' => 'required|string|max:255',
-            'dinas_unit_kerja' => 'required|string|max:255',
-            'instansi' => 'required|string|max:255',
-            'email_pemohon' => 'required|email|max:255',
-            'telepon' => 'required|string|max:255',
-            'status' => 'required|string|max:255',
-        ]);
+        $apiTTERequest = ApiTTERequest::findOrFail($id);
 
-        $apiTteRequest = ApiTTERequest::findOrFail($id);
-        $apiTteRequest->update($request->all());
+        $apiTTERequest->update($request->except(['_token', '_method', 'id']));
 
-        return redirect()->route('admin.api-tte.index')
-                         ->with('success', 'Data berhasil diperbarui.');
+        return redirect()->route('admin.api-tte.index')->with('success', 'Pengajuan API TTE berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        $apiTteRequest = ApiTTERequest::findOrFail($id);
-        $apiTteRequest->delete();
+        $apiTTERequest = ApiTTERequest::findOrFail($id);
+        $apiTTERequest->delete();
 
-        return redirect()->route('admin.api-tte.index')
-                         ->with('success', 'Data berhasil dihapus.');
+        return redirect()->route('admin.api-tte.index')->with('success', 'Pengajuan API TTE berhasil dihapus.');
     }
 
     public function updateStatus(Request $request, $id)
     {
-        $apiTteRequest = ApiTTERequest::findOrFail($id);
-        $apiTteRequest->update(['status' => $request->input('status')]);
+        $apiTTERequest = ApiTTERequest::findOrFail($id);
+        $newStatus = $request->input('status');
+        $apiTTERequest->status = $newStatus;
+        $apiTTERequest->save();
 
-        return redirect()->route('admin.api-tte.index')
-                         ->with('success', 'Status berhasil diperbarui.');
+        // Kirim notifikasi email kepada user
+        $this->sendStatusUpdateEmail($apiTTERequest);
+
+        if ($newStatus === 'rejected') {
+            return redirect()->route('admin.api-tte.rejected', $apiTTERequest->id);
+        }
+
+        return redirect()->route('admin.api-tte.index')->with('success', 'Status pengajuan berhasil diperbarui.');
+    }
+
+    public function rejected($id)
+    {
+        $apiTTERequest = ApiTTERequest::findOrFail($id);
+        return view('admin.api-tte.rejected', compact('apiTTERequest'));
+    }
+
+    public function submitRejectionReason(Request $request, $id)
+    {
+        $request->validate([
+            'reason' => 'required|string|max:1000',
+        ]);
+
+        $apiTTERequest = ApiTTERequest::findOrFail($id);
+
+        // Kirim email alasan penolakan
+        Mail::send('emails.api-tte-rejection-reason', [
+            'nama_lengkap' => $apiTTERequest->nama_lengkap,
+            'kode_tiket' => $apiTTERequest->kode_tiket,
+            'reason' => $request->input('reason'),
+        ], function ($message) use ($apiTTERequest) {
+            $message->to($apiTTERequest->email_pemohon)
+                    ->subject('Alasan Penolakan Pengajuan API TTE');
+        });
+
+        return redirect()->route('admin.api-tte.index')->with('success', 'Alasan penolakan berhasil dikirim.');
+    }
+
+    private function sendStatusUpdateEmail($apiTTERequest)
+    {
+        $data = [
+            'nama_lengkap' => $apiTTERequest->nama_lengkap,
+            'kode_tiket' => $apiTTERequest->kode_tiket,
+            'status' => $apiTTERequest->status,
+        ];
+
+        Mail::send('emails.api-tte-status-update', $data, function ($message) use ($apiTTERequest) {
+            $message->to($apiTTERequest->email_pemohon)
+                    ->subject('Status Tiket Anda Telah Diperbarui');
+        });
     }
 }

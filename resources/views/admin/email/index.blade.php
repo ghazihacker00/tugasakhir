@@ -53,9 +53,11 @@
                             @csrf
                             <select name="status" onchange="this.form.submit()" class="bg-gray-50 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition duration-300">
                                 <option value="new" {{ $request->status == 'new' ? 'selected' : '' }}>Baru</option>
-                                <option value="in_progress" {{ $request->status == 'in_progress' ? 'selected' : '' }}>Dalam Proses</option>
+                                <option value="processed" {{ $request->status == 'processed' ? 'selected' : '' }}>Dalam Proses</option>
                                 <option value="completed" {{ $request->status == 'completed' ? 'selected' : '' }}>Selesai</option>
+                                <option value="rejected" {{ $request->status == 'rejected' ? 'selected' : '' }}>Ditolak</option>
                             </select>
+
                         </form>
                     </td>
                     <td class="py-4 px-6 text-center">

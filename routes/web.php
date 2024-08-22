@@ -109,7 +109,18 @@ Route::prefix('admin')->group(function () {
         Route::delete('/pengaduan/{id}', [AdminPengaduanController::class, 'destroy'])->name('admin.pengaduan.destroy');
         
         Route::get('/admin/profile', [AdminController::class, 'profile'])->name('admin.profile');
-        
+
+        // Route untuk halaman alasan penolakan
+        Route::get('/admin/e-sign/{id}/rejected', [App\Http\Controllers\Admin\ESignController::class, 'rejected'])->name('admin.e-sign.rejected');
+        Route::post('/admin/e-sign/{id}/rejected', [App\Http\Controllers\Admin\ESignController::class, 'submitRejectionReason'])->name('admin.e-sign.submitRejectionReason');
+
+        Route::get('/admin/email/{id}/rejected', [App\Http\Controllers\Admin\EmailRequestController::class, 'rejected'])->name('admin.email.rejected');
+        Route::post('/admin/email/{id}/rejected', [App\Http\Controllers\Admin\EmailRequestController::class, 'submitRejectionReason'])->name('admin.email.submitRejectionReason');
+
+        Route::get('/admin/api-tte/{id}/rejected', [App\Http\Controllers\Admin\ApiTTEController::class, 'rejected'])->name('admin.api-tte.rejected');
+        Route::post('/admin/api-tte/{id}/rejected', [App\Http\Controllers\Admin\ApiTTEController::class, 'submitRejectionReason'])->name('admin.api-tte.submitRejectionReason');
+
+
 
 
         Route::get('/email', [AdminEmailRequestController::class, 'index'])->name('admin.email.index');
