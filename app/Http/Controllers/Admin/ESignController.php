@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ESignRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class ESignController extends Controller
 {
@@ -18,7 +19,7 @@ class ESignController extends Controller
                         ->orWhere('kode_tiket', 'like', "%{$search}%")
                         ->orWhere('email_pemohon', 'like', "%{$search}%")
                         ->orWhere('telepon', 'like', "%{$search}%");
-        })->paginate(10); // Menampilkan 10 data per halaman
+        })->paginate(10);
 
         return view('admin.e-sign.index', compact('eSignRequests', 'search'));
     }
@@ -32,7 +33,6 @@ class ESignController extends Controller
     public function update(Request $request, $id)
     {
         $eSignRequest = ESignRequest::findOrFail($id);
-
         $eSignRequest->update($request->except(['_token', '_method', 'id']));
 
         return redirect()->route('admin.e-sign.index')->with('success', 'Pengajuan E-Sign berhasil diperbarui.');
@@ -60,6 +60,10 @@ class ESignController extends Controller
             return redirect()->route('admin.e-sign.rejected', $eSignRequest->id);
         }
 
+        if ($newStatus === 'completed') {
+            return redirect()->route('admin.e-sign.completed', $eSignRequest->id);
+        }
+
         return redirect()->route('admin.e-sign.index')->with('success', 'Status pengajuan berhasil diperbarui.');
     }
 
@@ -67,6 +71,47 @@ class ESignController extends Controller
     {
         $eSignRequest = ESignRequest::findOrFail($id);
         return view('admin.e-sign.rejected', compact('eSignRequest'));
+    }
+
+    public function completed($id)
+    {
+        $eSignRequest = ESignRequest::findOrFail($id);
+        return view('admin.e-sign.completed', compact('eSignRequest'));
+    }
+
+    public function submitCompletionDetails(Request $request, $id)
+    {
+        $request->validate([
+            'reason' => 'required|string|max:1000',
+            'berkas_lampiran' => 'required|file|mimes:pdf,jpg,png,jpeg|max:2048',
+        ]);
+
+        $eSignRequest = ESignRequest::findOrFail($id);
+
+        // Simpan lampiran
+        $filePath = null;
+        if ($request->hasFile('berkas_lampiran')) {
+            $filePath = $request->file('berkas_lampiran')->store('completed_files', 'public');
+        }
+
+        // Kirim email completion details
+        Mail::send('emails.e-sign-completed', [
+            'nama_lengkap' => $eSignRequest->nama_lengkap,
+            'kode_tiket' => $eSignRequest->kode_tiket,
+            'reason' => $request->input('reason'),
+            'filePath' => $filePath,
+        ], function ($message) use ($eSignRequest, $filePath) {
+            $message->to($eSignRequest->email_pemohon)
+                    ->subject('Tiket Anda Telah Selesai');
+            
+            // Lampirkan file jika ada
+            if ($filePath) {
+                $message->attach(Storage::disk('public')->path($filePath));
+            }
+        });
+
+        return redirect()->route('admin.e-sign.index')
+                         ->with('success', 'Detail penyelesaian berhasil dikirim.');
     }
 
     public function submitRejectionReason(Request $request, $id)

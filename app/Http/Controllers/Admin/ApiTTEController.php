@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ApiTTERequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class ApiTTEController extends Controller
 {
@@ -15,11 +16,11 @@ class ApiTTEController extends Controller
 
         $apiTTERequests = ApiTTERequest::when($search, function ($query, $search) {
             return $query->where('nama_lengkap', 'like', "%{$search}%")
-                        ->orWhere('nik_nip', 'like', "%{$search}%")
-                        ->orWhere('kode_tiket', 'like', "%{$search}%")
-                        ->orWhere('email_pemohon', 'like', "%{$search}%")
-                        ->orWhere('telepon', 'like', "%{$search}%");
-        })->paginate(10); // Menampilkan 10 data per halaman
+                         ->orWhere('nik_nip', 'like', "%{$search}%")
+                         ->orWhere('kode_tiket', 'like', "%{$search}%")
+                         ->orWhere('email_pemohon', 'like', "%{$search}%")
+                         ->orWhere('telepon', 'like', "%{$search}%");
+        })->paginate(10);
 
         return view('admin.api-tte.index', compact('apiTTERequests', 'search'));
     }
@@ -33,7 +34,6 @@ class ApiTTEController extends Controller
     public function update(Request $request, $id)
     {
         $apiTTERequest = ApiTTERequest::findOrFail($id);
-
         $apiTTERequest->update($request->except(['_token', '_method', 'id']));
 
         return redirect()->route('admin.api-tte.index')->with('success', 'Pengajuan API TTE berhasil diperbarui.');
@@ -61,6 +61,10 @@ class ApiTTEController extends Controller
             return redirect()->route('admin.api-tte.rejected', $apiTTERequest->id);
         }
 
+        if ($newStatus === 'completed') {
+            return redirect()->route('admin.api-tte.completed', $apiTTERequest->id);
+        }
+
         return redirect()->route('admin.api-tte.index')->with('success', 'Status pengajuan berhasil diperbarui.');
     }
 
@@ -68,6 +72,47 @@ class ApiTTEController extends Controller
     {
         $apiTTERequest = ApiTTERequest::findOrFail($id);
         return view('admin.api-tte.rejected', compact('apiTTERequest'));
+    }
+
+    public function completed($id)
+    {
+        $apiTTERequest = ApiTTERequest::findOrFail($id);
+        return view('admin.api-tte.completed', compact('apiTTERequest'));
+    }
+
+    public function submitCompletionDetails(Request $request, $id)
+    {
+        $request->validate([
+            'reason' => 'required|string|max:1000',
+            'berkas_lampiran' => 'required|file|mimes:pdf,jpg,png,jpeg|max:2048',
+        ]);
+
+        $apiTTERequest = ApiTTERequest::findOrFail($id);
+
+        // Simpan lampiran
+        $filePath = null;
+        if ($request->hasFile('berkas_lampiran')) {
+            $filePath = $request->file('berkas_lampiran')->store('completed_files', 'public');
+        }
+
+        // Kirim email completion details
+        Mail::send('emails.api-tte-completed', [
+            'nama_lengkap' => $apiTTERequest->nama_lengkap,
+            'kode_tiket' => $apiTTERequest->kode_tiket,
+            'reason' => $request->input('reason'),
+            'filePath' => $filePath,
+        ], function ($message) use ($apiTTERequest, $filePath) {
+            $message->to($apiTTERequest->email_pemohon)
+                    ->subject('Tiket Anda Telah Selesai');
+            
+            // Lampirkan file jika ada
+            if ($filePath) {
+                $message->attach(Storage::disk('public')->path($filePath));
+            }
+        });
+
+        return redirect()->route('admin.api-tte.index')
+                         ->with('success', 'Detail penyelesaian berhasil dikirim.');
     }
 
     public function submitRejectionReason(Request $request, $id)
@@ -88,7 +133,8 @@ class ApiTTEController extends Controller
                     ->subject('Alasan Penolakan Pengajuan API TTE');
         });
 
-        return redirect()->route('admin.api-tte.index')->with('success', 'Alasan penolakan berhasil dikirim.');
+        return redirect()->route('admin.api-tte.index')
+                         ->with('success', 'Alasan penolakan berhasil dikirim.');
     }
 
     private function sendStatusUpdateEmail($apiTTERequest)

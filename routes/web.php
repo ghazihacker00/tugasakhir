@@ -124,6 +124,22 @@ Route::prefix('admin')->group(function () {
         Route::post('/admin/vulnerability-assessment/{id}/rejected', [App\Http\Controllers\Admin\VulnerabilityAssessmentController::class, 'submitRejectionReason'])->name('admin.vulnerability-assessment.submitRejectionReason');
 
 
+        Route::get('/admin/vulnerability-assessment/{id}/completed', [App\Http\Controllers\Admin\VulnerabilityAssessmentController::class, 'completed'])->name('admin.vulnerability-assessment.completed');
+        Route::post('/admin/vulnerability-assessment/{id}/completed', [App\Http\Controllers\Admin\VulnerabilityAssessmentController::class, 'submitCompletionDetails'])->name('admin.vulnerability-assessment.submitCompletionDetails');
+
+        // Route untuk halaman alasan penyelesaian
+        Route::get('/admin/e-sign/{id}/completed', [App\Http\Controllers\Admin\ESignController::class, 'completed'])->name('admin.e-sign.completed');
+        Route::post('/admin/e-sign/{id}/completed', [App\Http\Controllers\Admin\ESignController::class, 'submitCompletionDetails'])->name('admin.e-sign.submitCompletionDetails');
+
+        // Route untuk halaman alasan penyelesaian
+        Route::get('/admin/email/{id}/completed', [App\Http\Controllers\Admin\EmailRequestController::class, 'completed'])->name('admin.email.completed');
+        Route::post('/admin/email/{id}/completed', [App\Http\Controllers\Admin\EmailRequestController::class, 'submitCompletionDetails'])->name('admin.email.submitCompletionDetails');
+
+        // Rute untuk halaman alasan penyelesaian
+        Route::get('/admin/api-tte/{id}/completed', [App\Http\Controllers\Admin\ApiTTEController::class, 'completed'])->name('admin.api-tte.completed');
+        // Rute untuk submit detail penyelesaian
+        Route::post('/admin/api-tte/{id}/completed', [App\Http\Controllers\Admin\ApiTTEController::class, 'submitCompletionDetails'])->name('admin.api-tte.submitCompletionDetails');
+
 
 
 
