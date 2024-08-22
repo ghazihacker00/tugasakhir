@@ -1,6 +1,7 @@
 <div class="bg-gray-900 text-white py-12">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Info Section -->
             <div>
                 <h2 class="text-lg font-bold mb-4">SANDIKAMI Cimahi</h2>
                 <p class="text-sm">
@@ -8,7 +9,7 @@
                     Jl. Raden Demang Hardjakusumah Blok Jati No.1<br>
                     Cibabat, Kec. Cimahi Utara, Kota Cimahi, Jawa Barat 40513, Indonesia
                 </p>
-                <p class="text-sm mt-2">Email: cimahi-csirt@cimahikota.go.id</p>
+                <p class="text-sm mt-2">Email: <a href="mailto:cimahi-csirt@cimahikota.go.id" class="underline hover:text-gray-300">cimahi-csirt@cimahikota.go.id</a></p>
                 <div class="flex space-x-4 mt-4">
                     <a href="#" class="hover:text-gray-300"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="hover:text-gray-300"><i class="fab fa-twitter"></i></a>
@@ -16,6 +17,8 @@
                     <a href="#" class="hover:text-gray-300"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
+            
+            <!-- Contact Section -->
             <div>
                 <h2 class="text-lg font-bold mb-4">Hubungi Kami</h2>
                 <ul class="text-sm space-y-2">
@@ -25,10 +28,12 @@
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-envelope mr-2 mt-1"></i>
-                        <span>cimahi-csirt@cimahikota.go.id</span>
+                        <span><a href="mailto:cimahi-csirt@cimahikota.go.id" class="underline hover:text-gray-300">cimahi-csirt@cimahikota.go.id</a></span>
                     </li>
                 </ul>
             </div>
+            
+            <!-- Services Section -->
             <div>
                 <h2 class="text-lg font-bold mb-4">Layanan Kami</h2>
                 <ul class="text-sm space-y-2">
