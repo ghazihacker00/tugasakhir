@@ -46,6 +46,8 @@
 
 @include('components.footer')
 
+<!-- Alpine.js CDN -->
+<script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
 <script>
     function copyToClipboard() {
         var copyText = document.getElementById("kodeTiket").innerText;
