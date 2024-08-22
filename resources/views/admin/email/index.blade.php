@@ -3,18 +3,18 @@
 @section('title', 'Kelola E-Mail Requests')
 
 @section('content')
-<div class="bg-gray-100 shadow-lg rounded-xl p-8 transition duration-500 ease-in-out transform">
+<div class="bg-gray-100 shadow-lg rounded-xl p-8">
     <div class="flex justify-between items-center mb-8">
         <h2 class="text-4xl font-extrabold text-gray-900">Pengajuan E-Mail Requests</h2>
     </div>
 
     @if (session('success'))
-    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 rounded-lg shadow-sm flex items-center space-x-2">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2l4-4m5 3v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4m5 3h.01"></path>
-        </svg>
-        <span>{{ session('success') }}</span>
-    </div>
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 rounded-lg shadow-sm flex items-center space-x-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2l4-4m5 3v4a2 2 0 01-2 2H7a2 2 0 01-2-2v-4m5 3h.01"></path>
+            </svg>
+            <span>{{ session('success') }}</span>
+        </div>
     @endif
 
     <!-- Pencarian -->
@@ -57,7 +57,6 @@
                                 <option value="completed" {{ $request->status == 'completed' ? 'selected' : '' }}>Selesai</option>
                                 <option value="rejected" {{ $request->status == 'rejected' ? 'selected' : '' }}>Ditolak</option>
                             </select>
-
                         </form>
                     </td>
                     <td class="py-4 px-6 text-center">

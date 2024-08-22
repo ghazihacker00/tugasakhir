@@ -52,7 +52,7 @@
                     <td class="py-4 px-6 text-center text-gray-900">{{ $item->prioritas }}</td>
                     <td class="py-4 px-6 text-center text-gray-900">{{ $item->pesan }}</td>
                     <td class="py-4 px-6 text-center">
-                        @if ($item->lampiran) <!-- Pastikan menggunakan 'lampiran' sesuai dengan nama kolom di database -->
+                        @if ($item->lampiran)
                             <a href="{{ Storage::url($item->lampiran) }}" download class="text-blue-500 hover:underline">Download</a>
                         @else
                             Tidak ada berkas
