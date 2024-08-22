@@ -53,7 +53,7 @@
             </p>
         </div>
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-6 md:mb-0">
-            <img class="object-cover object-center rounded w-full h-full" alt="e-sign" src="img/Peningkatan SDM.png">
+            <img class="object-cover object-center rounded w-full h-full" alt="e-sign" src="img/jumat TTE.png">
         </div>
     </div>
 </section>
