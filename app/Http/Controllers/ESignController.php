@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ESignRequest;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class ESignController extends Controller
 {
@@ -40,9 +41,6 @@ class ESignController extends Controller
                 $request->file('surat_permohonan')->getClientOriginalName(),
                 'public'
             );
-            \Log::info('File uploaded successfully: ' . $suratPermohonanPath);
-        } else {
-            \Log::warning('File upload failed.');
         }
 
         // Menyimpan data ke database
@@ -61,6 +59,9 @@ class ESignController extends Controller
             'status' => 'new',
         ]);
 
+        // Kirim email konfirmasi kepada user
+        $this->sendConfirmationEmail($eSignRequest);
+
         // Redirect ke halaman tiket
         return redirect()->route('e-sign.ticket', ['kode_tiket' => $kodeTiket]);
     }
@@ -69,5 +70,19 @@ class ESignController extends Controller
     {
         $eSignRequest = ESignRequest::where('kode_tiket', $kode_tiket)->firstOrFail();
         return view('e_sign.ticket', compact('eSignRequest'));
+    }
+
+    private function sendConfirmationEmail($eSignRequest)
+    {
+        $data = [
+            'nama_lengkap' => $eSignRequest->nama_lengkap,
+            'kode_tiket' => $eSignRequest->kode_tiket,
+            'url_cek_tiket' => url('/cek-tiket'),
+        ];
+
+        Mail::send('emails.e-sign-confirmation', $data, function ($message) use ($eSignRequest) {
+            $message->to($eSignRequest->email_pemohon)
+                    ->subject('Konfirmasi Pengajuan E-Sign');
+        });
     }
 }

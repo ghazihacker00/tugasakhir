@@ -150,3 +150,4 @@ class EmailRequestController extends Controller
         });
     }
 }
+    

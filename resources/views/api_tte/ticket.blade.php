@@ -10,6 +10,16 @@
 
 @include('components.header')
 
+<!-- Modal Notifikasi Pop-Up -->
+<div id="notificationModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-11/12 max-w-md mx-auto">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800">Kode Tiket Terkirim</h2>
+        <p class="text-gray-600 mb-4">Kode tiket Anda telah dikirim ke email Anda. Harap simpan baik-baik dan jangan sampai hilang.</p>
+        <p class="text-gray-600 mb-4">Kode tiket ini dapat digunakan untuk memeriksa status pengajuan Anda di <a href="http://103.183.74.163/cek-tiket" class="text-blue-600 underline">sini</a>.</p>
+        <button onclick="closeModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">OK</button>
+    </div>
+</div>
+
 <div class="flex justify-center items-center min-h-screen bg-gray-100 py-6 sm:py-12">
     <div class="relative py-3 sm:w-96 w-full">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg"></div>
@@ -51,6 +61,19 @@
         setTimeout(function() {
             copyMessage.classList.add("hidden");
         }, 2000);
+    }
+
+    window.onload = function() {
+        var modal = document.getElementById("notificationModal");
+        modal.classList.remove("opacity-0", "pointer-events-none");
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("notificationModal");
+        modal.classList.add("opacity-0");
+        setTimeout(function() {
+            modal.classList.add("pointer-events-none");
+        }, 300);
     }
 </script>
 

@@ -37,6 +37,7 @@ Route::get('/layanan/e-mail/tiket/{kode_tiket}', [EmailRequestController::class,
 
 
 
+
 use App\Http\Controllers\CekTiketController;
 
 Route::get('/cek-tiket', [CekTiketController::class, 'index'])->name('cek-tiket.index');
@@ -137,6 +138,7 @@ Route::prefix('admin')->group(function () {
 
         // Rute untuk halaman alasan penyelesaian
         Route::get('/admin/api-tte/{id}/completed', [App\Http\Controllers\Admin\ApiTTEController::class, 'completed'])->name('admin.api-tte.completed');
+
         // Rute untuk submit detail penyelesaian
         Route::post('/admin/api-tte/{id}/completed', [App\Http\Controllers\Admin\ApiTTEController::class, 'submitCompletionDetails'])->name('admin.api-tte.submitCompletionDetails');
 

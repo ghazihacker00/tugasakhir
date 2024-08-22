@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EmailRequest;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class EmailRequestController extends Controller
 {
@@ -25,22 +27,24 @@ class EmailRequestController extends Controller
             'email_pemohon' => 'required|email|max:255',
             'telepon' => 'required|string|max:255',
             'alamat' => 'required|string',
-            'lampiran' => 'nullable|file|mimes:pdf,jpg,png,jpeg,docx,doc|max:2048',
+            'surat_permohonan' => 'nullable|file|mimes:pdf,jpg,png,jpeg,docx,doc|max:2048',
         ]);
 
-        // Menyimpan file lampiran
-        $lampiranPath = $request->file('lampiran') ? $request->file('lampiran')->storeAs(
-            'lampiran',
-            $request->file('lampiran')->getClientOriginalName(),
-            'public'
-        ) : null;
-
         // Membuat kode tiket
-        $kodeTiket = 'C-' . substr(md5(uniqid(mt_rand(), true)), 0, 4) . '-' . substr(md5(uniqid(mt_rand(), true)), 4, 4) . '-' . substr(md5(uniqid(mt_rand(), true)), 8, 4);
+        $kodeTiket = 'A-' . Str::upper(Str::random(4)) . '-' . Str::upper(Str::random(4)) . '-' . Str::upper(Str::random(4));
+
+        // Menyimpan file surat permohonan
+        $suratPermohonanPath = null;
+        if ($request->hasFile('surat_permohonan')) {
+            $suratPermohonanPath = $request->file('surat_permohonan')->storeAs(
+                'surat_permohonan',
+                $request->file('surat_permohonan')->getClientOriginalName(),
+                'public'
+            );
+        }
 
         // Menyimpan data ke database
-        EmailRequest::create([
-            'kode_tiket' => $kodeTiket,
+        $emailRequest = EmailRequest::create([
             'nama_lengkap' => $request->nama_lengkap,
             'nik_nip' => $request->nik_nip,
             'jabatan' => $request->jabatan,
@@ -50,10 +54,15 @@ class EmailRequestController extends Controller
             'email_pemohon' => $request->email_pemohon,
             'telepon' => $request->telepon,
             'alamat' => $request->alamat,
-            'lampiran' => $lampiranPath,
+            'surat_permohonan' => $suratPermohonanPath,
+            'kode_tiket' => $kodeTiket,
             'status' => 'new',
         ]);
 
+        // Kirim email konfirmasi kepada user
+        $this->sendConfirmationEmail($emailRequest);
+
+        // Redirect ke halaman tiket
         return redirect()->route('email.tiket', ['kode_tiket' => $kodeTiket]);
     }
 
@@ -61,5 +70,19 @@ class EmailRequestController extends Controller
     {
         $emailRequest = EmailRequest::where('kode_tiket', $kode_tiket)->firstOrFail();
         return view('email.tiket', compact('emailRequest'));
+    }
+
+    private function sendConfirmationEmail($emailRequest)
+    {
+        $data = [
+            'nama_lengkap' => $emailRequest->nama_lengkap,
+            'kode_tiket' => $emailRequest->kode_tiket,
+            'url_cek_tiket' => url('/cek-tiket'),
+        ];
+
+        Mail::send('emails.e-sign-confirmation', $data, function ($message) use ($emailRequest) {
+            $message->to($emailRequest->email_pemohon)
+                    ->subject('Konfirmasi Pengajuan E-Mail');
+        });
     }
 }

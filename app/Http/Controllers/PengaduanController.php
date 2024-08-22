@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
+use Illuminate\Support\Facades\Mail;
 
 class PengaduanController extends Controller
 {
@@ -35,7 +36,7 @@ class PengaduanController extends Controller
         ) : null;
 
         // Menyimpan data ke database
-        Pengaduan::create([
+        $pengaduan = Pengaduan::create([
             'judul' => $request->judul,
             'nama' => $request->nama,
             'email' => $request->email,
@@ -47,6 +48,24 @@ class PengaduanController extends Controller
             'lampiran' => $lampiranPath,
         ]);
 
+        // Kirim email konfirmasi kepada user
+        $this->sendConfirmationEmail($pengaduan);
+
         return redirect()->route('pengaduan.create')->with('success', 'Pengaduan telah berhasil dikirim.');
+    }
+
+    private function sendConfirmationEmail($pengaduan)
+    {
+        $data = [
+            'nama' => $pengaduan->nama,
+            'judul' => $pengaduan->judul,
+            'pesan' => $pengaduan->pesan,
+            'prioritas' => $pengaduan->prioritas,
+        ];
+
+        Mail::send('emails.pengaduan-confirmation', $data, function ($message) use ($pengaduan) {
+            $message->to($pengaduan->email)
+                    ->subject('Konfirmasi Pengaduan Anda');
+        });
     }
 }

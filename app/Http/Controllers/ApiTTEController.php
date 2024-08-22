@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ApiTTERequest;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
 
 class ApiTTEController extends Controller
 {
@@ -30,17 +31,20 @@ class ApiTTEController extends Controller
         ]);
 
         // Membuat kode tiket
-        $kodeTiket = 'D-' . strtoupper(Str::random(4)) . '-' . strtoupper(Str::random(4)) . '-' . strtoupper(Str::random(4));
+        $kodeTiket = 'A-' . Str::upper(Str::random(4)) . '-' . Str::upper(Str::random(4)) . '-' . Str::upper(Str::random(4));
 
         // Menyimpan file surat permohonan
-        $suratPermohonanPath = $request->file('surat_permohonan') ? $request->file('surat_permohonan')->storeAs(
-            'surat_permohonan',
-            $request->file('surat_permohonan')->getClientOriginalName(),
-            'public'
-        ) : null;
+        $suratPermohonanPath = null;
+        if ($request->hasFile('surat_permohonan')) {
+            $suratPermohonanPath = $request->file('surat_permohonan')->storeAs(
+                'surat_permohonan',
+                $request->file('surat_permohonan')->getClientOriginalName(),
+                'public'
+            );
+        }
 
         // Menyimpan data ke database
-        ApiTTERequest::create([
+        $apiTTERequest = ApiTTERequest::create([
             'nama_lengkap' => $request->nama_lengkap,
             'nik_nip' => $request->nik_nip,
             'jabatan' => $request->jabatan,
@@ -55,6 +59,10 @@ class ApiTTEController extends Controller
             'status' => 'new',
         ]);
 
+        // Kirim email konfirmasi kepada user
+        $this->sendConfirmationEmail($apiTTERequest);
+
+        // Redirect ke halaman tiket
         return redirect()->route('api-tte.ticket', ['kode_tiket' => $kodeTiket]);
     }
 
@@ -62,5 +70,19 @@ class ApiTTEController extends Controller
     {
         $apiTTERequest = ApiTTERequest::where('kode_tiket', $kode_tiket)->firstOrFail();
         return view('api_tte.ticket', compact('apiTTERequest'));
+    }
+
+    private function sendConfirmationEmail($apiTTERequest)
+    {
+        $data = [
+            'nama_lengkap' => $apiTTERequest->nama_lengkap,
+            'kode_tiket' => $apiTTERequest->kode_tiket,
+            'url_cek_tiket' => url('/cek-tiket'),
+        ];
+
+        Mail::send('emails.api-tte-confirmation', $data, function ($message) use ($apiTTERequest) {
+            $message->to($apiTTERequest->email_pemohon)
+                    ->subject('Konfirmasi Pengajuan API TTE');
+        });
     }
 }
