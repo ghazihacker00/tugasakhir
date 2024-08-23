@@ -35,7 +35,7 @@
                         <a href="/layanan/api-tte" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Integrasi API-TTE</a>
                     </div>
                 </div>
-                <a href="/pengaduan" class="text-white hover:text-gray-300 transition">Pengaduan</a>
+                <a href="/pengaduan" class="text-white hover:text-gray-300 transition">Helpdesk</a>
                 <a href="/cek-tiket" class="text-white hover:text-gray-300 transition">Cek Status Tiket</a>
             </nav>
 
