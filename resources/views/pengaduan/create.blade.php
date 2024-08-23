@@ -50,8 +50,8 @@
                         <label for="divisi" class="block text-sm font-medium text-gray-700">Divisi</label>
                         <select name="divisi" id="divisi" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('divisi') border-red-500 @enderror">
                             <option value="">Pilih Divisi</option>
-                            <option value="Divisi A" {{ old('divisi') == 'Divisi A' ? 'selected' : '' }}>Divisi A</option>
-                            <option value="Divisi B" {{ old('divisi') == 'Divisi B' ? 'selected' : '' }}>Divisi B</option>
+                            <option value="Persandian" {{ old('divisi') == 'Persandian' ? 'selected' : '' }}>Persandian</option>
+                            <option value="CSRIT" {{ old('divisi') == 'CSRIT' ? 'selected' : '' }}>CSRIT</option>
                         </select>
                         @error('divisi')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -75,8 +75,12 @@
                         <label for="layanan" class="block text-sm font-medium text-gray-700">Layanan</label>
                         <select name="layanan" id="layanan" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('layanan') border-red-500 @enderror">
                             <option value="">Pilih Layanan</option>
-                            <option value="Layanan A" {{ old('layanan') == 'Layanan A' ? 'selected' : '' }}>Layanan A</option>
-                            <option value="Layanan B" {{ old('layanan') == 'Layanan B' ? 'selected' : '' }}>Layanan B</option>
+                            <option value="Pendaftaran akun TTE/E-sign" {{ old('layanan') == 'Pendaftaran akun TTE/E-sign' ? 'selected' : '' }}>Pendaftaran akun TTE/E-sign</option>
+                            <option value="Pengajuan Mail" {{ old('layanan') == 'Pengajuan Mail' ? 'selected' : '' }}>Pengajuan Mail</option>
+                            <option value="Security Assessment" {{ old('layanan') == 'Security Assessment' ? 'selected' : '' }}>Security Assessment</option>
+                            <option value="Vulnerability Assessment" {{ old('layanan') == 'Vulnerability Assessment' ? 'selected' : '' }}>Vulnerability Assessment</option>
+                            <option value="Lapor Konten" {{ old('layanan') == 'Lapor Konten' ? 'selected' : '' }}>Lapor Konten</option>
+                            <option value="Lainnya" {{ old('layanan') == 'Lainnya' ? 'selected' : '' }}>Lainnya</option>
                         </select>
                         @error('layanan')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
