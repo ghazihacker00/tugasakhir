@@ -88,4 +88,4 @@
 </div>
 
 <!-- Alpine.js CDN -->
-<script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
