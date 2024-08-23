@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Persandian Kota Cimahi</title>
     @vite('resources/css/app.css')
+    @vite('resources/js/app.js')
 </head>
 <body class="bg-gray-100">
 
@@ -155,9 +156,6 @@
 </section>
 
 @include('components.footer')
-
-<!-- Alpine.js CDN -->
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 </body>
 </html>
