@@ -49,6 +49,7 @@
                     <li><a href="/layanan/vulnerability-assessment" class="hover:text-emerald-400">Pengajuan Vulnerability Assessment (VA) / Pentest</a></li>
                     <li><a href="/layanan/e-mail" class="hover:text-emerald-400">Penerbitan E-mail PEMDA</a></li>
                     <li><a href="/layanan/api-tte" class="hover:text-emerald-400">Pengajuan Integrasi API-TTE</a></li>
+                    <li><a href="https://cimahi-csirt.cimahikota.go.id/" class="hover:text-emerald-400">CSIRT</a></li>
                 </ul>
             </div>
         </div>

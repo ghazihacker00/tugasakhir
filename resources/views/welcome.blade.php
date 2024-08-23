@@ -82,8 +82,8 @@
         <div class="text-center mb-12">
             <h2 class="text-3xl font-bold leading-tight text-gray-800">Layanan Kami</h2>
         </div>
-        <div class="flex flex-wrap -m-4">
-            <div class="p-4 md:w-1/2">
+        <div class="flex flex-wrap -m-4 justify-center">
+            <div class="p-4 md:w-1/2 lg:w-1/3">
                 <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
@@ -101,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 md:w-1/2">
+            <div class="p-4 md:w-1/2 lg:w-1/3">
                 <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
@@ -119,7 +119,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 md:w-1/2">
+            <div class="p-4 md:w-1/2 lg:w-1/3">
                 <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 md:w-1/2">
+            <div class="p-4 md:w-1/2 lg:w-1/3">
                 <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
@@ -155,6 +155,24 @@
                     </div>
                 </div>
             </div>
+            <div class="p-4 md:w-1/2 lg:w-1/3">
+                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
+                            <i class="fas fa-lock text-lg"></i>
+                        </div>
+                        <h3 class="text-gray-800 text-xl font-semibold title-font">CSIRT</h3>
+                    </div>
+                    <div class="flex-grow">
+                        <p class="leading-relaxed text-base text-gray-700">Tim tanggap insiden keamanan siber untuk menjaga keamanan informasi di Kota Cimahi.</p>
+                        <a href="https://cimahi-csirt.cimahikota.go.id/" class="mt-4 text-indigo-600 inline-flex items-center hover:underline">Go
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -162,6 +180,6 @@
 @include('components.footer')
 
 <!-- Alpine.js CDN -->
-    <script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
 </body>
 </html>

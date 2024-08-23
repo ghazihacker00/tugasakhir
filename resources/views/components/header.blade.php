@@ -32,6 +32,7 @@
                         <a href="/layanan/vulnerability-assessment" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Vulnerability Assessment (VA) / Pentest</a>
                         <a href="/layanan/e-mail" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Penerbitan E-mail</a>
                         <a href="/layanan/api-tte" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Integrasi API-TTE</a>
+                        <a href="https://cimahi-csirt.cimahikota.go.id/" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">CSRT Kota Cimahi</a>
                     </div>
                 </div>
                 <a href="/pengaduan" class="text-white hover:text-gray-300 transition">Helpdesk</a>
