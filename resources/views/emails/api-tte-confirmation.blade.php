@@ -8,7 +8,7 @@
 <body>
     <h1>Konfirmasi Pengajuan API TTE</h1>
     <p>Halo, {{ $nama_lengkap }},</p>
-    <p>Terima kasih telah melakukan pengajuan API TTE. Berikut adalah kode tiket Anda:</p>
+    <p>Terima kasih telah melakukan pengajuan eSign Client Service(API TTE). Berikut adalah kode tiket Anda:</p>
     <p><strong>Kode Tiket: {{ $kode_tiket }}</strong></p>
     <p>Harap simpan kode tiket ini dengan baik. Kode tiket ini dapat digunakan untuk memeriksa status pengajuan Anda melalui <a href="{{ $url_cek_tiket }}">link berikut</a>.</p>
     <p>Jangan sampai hilang, karena kode ini diperlukan untuk melakukan pengecekan status pengajuan.</p>
