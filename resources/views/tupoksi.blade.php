@@ -6,22 +6,22 @@
     <title>Tupoksi</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-100 dark:bg-slate-900">
+<body class="bg-white">
 
     @include('components.header')
 
-    <section class="py-16 bg-gradient-to-b from-white to-gray-100 dark:from-slate-900 dark:to-slate-800">
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-slate-800 shadow-lg rounded-lg p-8 max-w-4xl mx-auto">
-                <h1 class="text-center text-3xl font-bold text-gray-900 dark:text-gray-100 mb-8">
+            <div class="bg-white shadow-lg rounded-lg p-8 max-w-4xl mx-auto">
+                <h1 class="text-center text-3xl font-bold text-gray-900 mb-8">
                     Tupoksi Bidang Persandian dan Keamanan Informasi
                 </h1>
-                <div class="text-gray-800 dark:text-gray-300 space-y-6 leading-relaxed">
+                <div class="text-gray-800 space-y-6 leading-relaxed">
                     <p>
-                    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-300 mb-4">1. Bidang Persandian dan Keamanan Informasi mempunyai tugas melaksanakan penyusunan, pelaksanaan kebijakan, dan pemberian bimbingan teknis serta pemantauan dan evaluasi di bidang persandian dan keamanan informasi.</h2>
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">1. Bidang Persandian dan Keamanan Informasi mempunyai tugas melaksanakan penyusunan, pelaksanaan kebijakan, dan pemberian bimbingan teknis serta pemantauan dan evaluasi di bidang persandian dan keamanan informasi.</h2>
                     </p>
                     <p>
-                    <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-300 mb-4">   2. Dalam melaksanakan tugas sebagaimana dimaksud pada ayat (1), Bidang Persandian dan Keamanan Informasi mempunyai fungsi:</h2>
+                        <h2 class="text-xl font-semibold text-gray-800 mb-4">2. Dalam melaksanakan tugas sebagaimana dimaksud pada ayat (1), Bidang Persandian dan Keamanan Informasi mempunyai fungsi:</h2>
                     </p>
                     <ul class="list-disc list-inside pl-6 space-y-2">
                         <li>Penyusunan program kerja Bidang Persandian dan Keamanan Informasi.</li>
