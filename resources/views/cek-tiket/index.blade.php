@@ -11,7 +11,7 @@
 @include('components.header')
 
 <div class="flex justify-center items-center min-h-screen bg-gray-100 py-6 sm:py-12">
-    <div class="relative py-3 sm:w-3/4 lg:w-2/3 w-full">
+    <div class="relative w-full max-w-lg mx-auto">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg"></div>
         <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-lg sm:p-10">
             <h2 class="text-3xl font-bold leading-tight text-center mb-4 text-gray-900">Cek Status Tiket</h2>

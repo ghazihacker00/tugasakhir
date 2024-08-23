@@ -11,10 +11,10 @@
 @include('components.header')
 
 <div class="flex justify-center items-center min-h-screen bg-gray-100 py-6 sm:py-12">
-    <div class="relative py-3 sm:w-3/4 lg:w-2/3 w-full">
+    <div class="relative w-full max-w-lg mx-auto">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg"></div>
         <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-lg sm:p-10">
-            <h2 class="text-3xl font-bold leading-tight text-center mb-4 text-gray-900">Formulir Pengajuan Email Kedinasan</h2>
+            <h2 class="text-2xl font-bold leading-tight text-center mb-4 text-gray-900">Formulir Pengajuan Email Kedinasan</h2>
             @if (session('success'))
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
                     <span class="block sm:inline">{{ session('success') }}</span>
@@ -48,7 +48,6 @@
                         <label for="pangkat_golongan_eselon" class="block text-sm font-medium text-gray-700">Pangkat/Golongan/Eselon</label>
                         <select name="pangkat_golongan_eselon" id="pangkat_golongan_eselon" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('pangkat_golongan_eselon') border-red-500 @enderror">
                             <option value="">Pilih Pangkat/Golongan/Eselon</option>
-                            <!-- Tambahkan opsi pangkat/golongan/eselon lainnya sesuai kebutuhan -->
                             <option value="Juru Muda I/a" {{ old('pangkat_golongan_eselon') == 'Juru Muda I/a' ? 'selected' : '' }}>Juru Muda I/a</option>
                             <option value="Penata Tingkat I III/d" {{ old('pangkat_golongan_eselon') == 'Penata Tingkat I III/d' ? 'selected' : '' }}>Penata Tingkat I III/d</option>
                             <option value="lainnya" {{ old('pangkat_golongan_eselon') == 'lainnya' ? 'selected' : '' }}>lainnya</option>
@@ -61,7 +60,6 @@
                         <label for="dinas_unit_kerja" class="block text-sm font-medium text-gray-700">Dinas/Unit Kerja</label>
                         <select name="dinas_unit_kerja" id="dinas_unit_kerja" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('dinas_unit_kerja') border-red-500 @enderror">
                             <option value="">Pilih Dinas/Unit Kerja</option>
-                            <!-- Tambahkan opsi dinas/unit kerja lainnya sesuai kebutuhan -->
                             <option value="Sekretariat Daerah" {{ old('dinas_unit_kerja') == 'Sekretariat Daerah' ? 'selected' : '' }}>Sekretariat Daerah</option>
                         </select>
                         @error('dinas_unit_kerja')
@@ -100,7 +98,16 @@
                     </div>
                     <div class="col-span-1 md:col-span-2">
                         <label for="surat_permohonan" class="block text-sm font-medium text-gray-700">Upload Surat Permohonan</label>
-                        <input type="file" name="surat_permohonan" id="surat_permohonan" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('surat_permohonan') border-red-500 @enderror">
+                        <label class="block">
+                            <span class="sr-only">Choose File</span>
+                            <input type="file" name="surat_permohonan" id="surat_permohonan" class="block w-full text-sm text-gray-500
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:text-sm file:font-semibold
+                            file:bg-blue-50 file:text-blue-700
+                            hover:file:bg-blue-100
+                            @error('surat_permohonan') border-red-500 @enderror">
+                        </label>
                         @error('surat_permohonan')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
