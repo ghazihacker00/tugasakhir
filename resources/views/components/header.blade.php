@@ -1,4 +1,5 @@
 <!-- Header -->
+<script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
 <header class="bg-blue-600 shadow-md fixed top-0 left-0 w-full z-50" x-data="{ open: false }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
@@ -35,7 +36,7 @@
                         <a href="/layanan/api-tte" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Integrasi API-TTE</a>
                     </div>
                 </div>
-                <a href="/pengaduan" class="text-white hover:text-gray-300 transition">Pengaduan</a>
+                <a href="/pengaduan" class="text-white hover:text-gray-300 transition">Helpdesk</a>
                 <a href="/cek-tiket" class="text-white hover:text-gray-300 transition">Cek Status Tiket</a>
             </nav>
 
@@ -76,7 +77,7 @@
                     <a href="/layanan/api-tte" class="block px-4 py-2 hover:bg-blue-600">Integrasi API-TTE</a>
                 </div>
             </div>
-            <a href="/pengaduan" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Pengaduan</a>
+            <a href="/pengaduan" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Helpdesk</a>
             <a href="/cek-tiket" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Cek Status Tiket</a>
         </div>
     </div>
@@ -88,5 +89,4 @@
 </div>
 
 <!-- Alpine.js CDN -->
-<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
