@@ -4,9 +4,18 @@ module.exports = {
     './resources/**/*.js',
     './resources/**/*.vue',
   ],
-  darkMode: 'media', // Atau Anda dapat menghapusnya jika tidak dibutuhkan
+  darkMode: 'media', // Hapus jika tidak digunakan
   theme: {
-    extend: {},
+    extend: {
+      boxShadow: {
+        'outline-blue': '0 0 0 2px rgba(59, 130, 246, 0.5)', // Shadow biru saat fokus
+      },
+      colors: {
+        'custom-blue': '#1D4ED8', // Warna biru khusus jika diperlukan
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'), // Plugin untuk mendukung styling form
+  ],
 }
