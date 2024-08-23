@@ -29,7 +29,7 @@
                     <!-- Nama Lengkap -->
                     <div class="col-span-1 md:col-span-2">
                         <label for="nama_lengkap" class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap (sesuai KTP)</label>
-                        <input type="text" name="nama_lengkap" id="nama_lengkap" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('nama_lengkap') border-red-500 @enderror" value="{{ old('nama_lengkap') }}">
+                        <input type="text" name="nama_lengkap" id="nama_lengkap" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('nama_lengkap') border-red-500 @enderror" value="{{ old('nama_lengkap') }}">
                         @error('nama_lengkap')
                             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
                         @enderror
@@ -38,7 +38,7 @@
                     <!-- NIK/NIP -->
                     <div class="col-span-1">
                         <label for="nik_nip" class="block text-sm font-semibold text-gray-700 mb-1">NIK/NIP</label>
-                        <input type="text" name="nik_nip" id="nik_nip" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('nik_nip') border-red-500 @enderror" value="{{ old('nik_nip') }}">
+                        <input type="text" name="nik_nip" id="nik_nip" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('nik_nip') border-red-500 @enderror" value="{{ old('nik_nip') }}">
                         @error('nik_nip')
                             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
                         @enderror
@@ -47,7 +47,7 @@
                     <!-- Jabatan -->
                     <div class="col-span-1">
                         <label for="jabatan" class="block text-sm font-semibold text-gray-700 mb-1">Jabatan</label>
-                        <input type="text" name="jabatan" id="jabatan" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('jabatan') border-red-500 @enderror" value="{{ old('jabatan') }}">
+                        <input type="text" name="jabatan" id="jabatan" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('jabatan') border-red-500 @enderror" value="{{ old('jabatan') }}">
                         @error('jabatan')
                             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
                         @enderror
@@ -56,7 +56,7 @@
                     <!-- Pangkat/Golongan/Eselon -->
                     <div class="col-span-1">
                         <label for="pangkat_golongan_eselon" class="block text-sm font-semibold text-gray-700 mb-1">Pangkat/Golongan/Eselon</label>
-                        <select name="pangkat_golongan_eselon" id="pangkat_golongan_eselon" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('pangkat_golongan_eselon') border-red-500 @enderror">
+                        <select name="pangkat_golongan_eselon" id="pangkat_golongan_eselon" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('pangkat_golongan_eselon') border-red-500 @enderror">
                             <option value="">Pilih Pangkat/Golongan/Eselon</option>
                             <option value="Juru Muda I/a" {{ old('pangkat_golongan_eselon') == 'Juru Muda I/a' ? 'selected' : '' }}>Juru Muda I/a</option>
                             <option value="Juru Muda Tingkat I I/b" {{ old('pangkat_golongan_eselon') == 'Juru Muda Tingkat I I/b' ? 'selected' : '' }}>Juru Muda Tingkat I I/b</option>
@@ -85,7 +85,7 @@
                     <!-- Dinas/Unit Kerja -->
                     <div class="col-span-1">
                         <label for="dinas_unit_kerja" class="block text-sm font-semibold text-gray-700 mb-1">Dinas/Unit Kerja</label>
-                        <select name="dinas_unit_kerja" id="dinas_unit_kerja" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('dinas_unit_kerja') border-red-500 @enderror">
+                        <select name="dinas_unit_kerja" id="dinas_unit_kerja" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('dinas_unit_kerja') border-red-500 @enderror">
                             <option value="">Pilih Dinas/Unit Kerja</option>
                             <option value="Sekretariat Daerah" {{ old('dinas_unit_kerja') == 'Sekretariat Daerah' ? 'selected' : '' }}>Sekretariat Daerah</option>
                             <option value="Sekretariat DPRD" {{ old('dinas_unit_kerja') == 'Sekretariat DPRD' ? 'selected' : '' }}>Sekretariat DPRD</option>
@@ -117,7 +117,7 @@
                     <!-- Instansi -->
                     <div class="col-span-1">
                         <label for="instansi" class="block text-sm font-semibold text-gray-700 mb-1">Instansi</label>
-                        <select name="instansi" id="instansi" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('instansi') border-red-500 @enderror">
+                        <select name="instansi" id="instansi" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('instansi') border-red-500 @enderror">
                             <option value="Pemerintah Kota Cimahi" {{ old('instansi') == 'Pemerintah Kota Cimahi' ? 'selected' : '' }}>Pemerintah Kota Cimahi</option>
                         </select>
                         @error('instansi')
@@ -128,7 +128,7 @@
                     <!-- Email Pemohon -->
                     <div class="col-span-1">
                         <label for="email_pemohon" class="block text-sm font-semibold text-gray-700 mb-1">Email Pemohon</label>
-                        <input type="email" name="email_pemohon" id="email_pemohon" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('email_pemohon') border-red-500 @enderror" value="{{ old('email_pemohon') }}">
+                        <input type="email" name="email_pemohon" id="email_pemohon" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('email_pemohon') border-red-500 @enderror" value="{{ old('email_pemohon') }}">
                         @error('email_pemohon')
                             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
                         @enderror
@@ -137,7 +137,7 @@
                     <!-- No. Telepon/Whatsapp -->
                     <div class="col-span-1 md:col-span-2">
                         <label for="telepon" class="block text-sm font-semibold text-gray-700 mb-1">No. Telepon/Whatsapp</label>
-                        <input type="text" name="telepon" id="telepon" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('telepon') border-red-500 @enderror" value="{{ old('telepon') }}">
+                        <input type="text" name="telepon" id="telepon" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('telepon') border-red-500 @enderror" value="{{ old('telepon') }}">
                         @error('telepon')
                             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
                         @enderror
@@ -146,7 +146,7 @@
                     <!-- Alamat -->
                     <div class="col-span-1 md:col-span-2">
                         <label for="alamat" class="block text-sm font-semibold text-gray-700 mb-1">Alamat</label>
-                        <textarea name="alamat" id="alamat" rows="3" class="mt-1 block w-full px-4 py-3 border border-blue-400 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-black focus:ring-0 focus:shadow-outline-blue hover:border-black hover:shadow-blue-300 transition duration-300 @error('alamat') border-red-500 @enderror">{{ old('alamat') }}</textarea>
+                        <textarea name="alamat" id="alamat" rows="3" class="mt-1 block w-full px-4 py-3 border border-gray-300 shadow-sm sm:text-sm rounded-lg placeholder-gray-400 focus:border-gray-300 focus:ring-0 @error('alamat') border-red-500 @enderror">{{ old('alamat') }}</textarea>
                         @error('alamat')
                             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
                         @enderror
@@ -162,14 +162,6 @@
                         @error('surat_permohonan')
                             <p class="text-red-500 text-xs italic mt-2">{{ $message }}</p>
                         @enderror
-                    </div>
-                    
-                    <!-- Checkbox -->
-                    <div class="col-span-1 md:col-span-2">
-                        <div class="flex items-center">
-                            <input id="checkbox" name="checkbox" type="checkbox" class="form-checkbox text-blue-600 h-5 w-5">
-                            <label for="checkbox" class="ml-2 block text-sm font-semibold text-gray-700">I agree to the terms and conditions</label>
-                        </div>
                     </div>
                 </div>
                 
