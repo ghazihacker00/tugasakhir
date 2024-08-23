@@ -6,7 +6,7 @@
     <title>Home Persandian Kota Cimahi</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50 text-gray-900">
 
 @include('components.header')
 
@@ -29,75 +29,71 @@
     </div>
 </section>
 
-<section class="bg-gray-100 dark:bg-slate-800 py-16">
+<section class="bg-gray-100 py-16">
     <div class="container mx-auto">
         <!-- Konten lainnya -->
     </div>
 </section>
 
-
-<section id="section-sandi" class="text-gray-600 body-font bg-gradient-to-b from-gray-100 to-white dark:from-slate-800 dark:to-slate-700 py-16">
+<section id="section-sandi" class="text-gray-600 body-font bg-gradient-to-b from-gray-100 to-white py-16">
     <div class="container mx-auto flex md:flex-row flex-col items-center">
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-6 md:mb-0">
             <img class="object-cover object-center rounded-lg shadow-lg w-full h-full" alt="security" src="img/Update SOC.png">
         </div>
-        <!-- Konten teks di sebelah kanan -->
         <div class="lg:flex-grow mt-5 md:mt-0 md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h2 class="text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 mb-4">Persandian, Tidak Sekedar Sandi</h2>
-            <p class="leading-relaxed text-gray-700 dark:text-gray-300">
+            <h2 class="text-3xl font-bold leading-tight text-gray-800 mb-4">Persandian, Tidak Sekedar Sandi</h2>
+            <p class="leading-relaxed text-gray-700">
                 Secara umum, urusan persandian dan keamanan informasi dilaksanakan oleh Bidang Persandian dan Keamanan Informasi Dinas Komunikasi Informatika Statistik dan Persandian Cimahi, dimana meliputi kegiatan pengamanan data/informasi yang dilaksanakan dengan menerapkan konsep, teori, seni, dan ilmu kripto beserta ilmu pendukung lainnya sehingga terjaganya kerahasiaan, keaslian, keutuhan, ketersediaan, dan kenirsangkalan informasi. Kegiatan urusan persandian dan keamanan informasi pada Pemerintah Daerah mengacu pada kebijakan Badan Siber dan Sandi Negara (BSSN).
             </p>
         </div>
     </div>
 </section>
 
-<section id="section-e-sign" class="text-gray-600 body-font bg-gradient-to-b from-white to-gray-100 dark:from-slate-900 dark:to-slate-800 py-16">
+<section id="section-e-sign" class="text-gray-600 body-font bg-gradient-to-b from-white to-gray-100 py-16">
     <div class="container mx-auto flex md:flex-row flex-col items-center">
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-6 md:mb-0">
             <img class="object-cover object-center rounded-lg shadow-lg w-full h-full" alt="e-sign" src="img/jumat TTE.png">
         </div>
-        <!-- Konten teks di sebelah kanan -->
         <div class="lg:flex-grow mt-5 md:mt-0 md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h2 class="text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 mb-4">E-Sign Tanda Tangan Elektronik</h2>
-            <p class="leading-relaxed dark:text-gray-300 text-gray-700">
+            <h2 class="text-3xl font-bold leading-tight text-gray-800 mb-4">E-Sign Tanda Tangan Elektronik</h2>
+            <p class="leading-relaxed text-gray-700">
                 Tanda Tangan Elektronik memberikan keabsahan yang sama dengan tanda tangan manual. Dengan layanan ini, Anda dapat menandatangani dokumen secara digital dengan keamanan yang terjamin dan mudah digunakan.
             </p>
         </div>
     </div>
 </section>
 
-<section id="section-pentest" class="text-gray-600 body-font bg-gradient-to-b from-gray-100 to-white dark:from-slate-800 dark:to-slate-700 py-16">
+<section id="section-pentest" class="text-gray-600 body-font bg-gradient-to-b from-gray-100 to-white py-16">
     <div class="container mx-auto flex md:flex-row flex-col items-center">
         <div class="lg:max-w-lg lg:w-full md:w-1/2 w-full mb-6 md:mb-0">
             <img class="object-cover object-center rounded-lg shadow-lg w-full h-full" alt="pentest" src="img/ITSA KAMI.png">
         </div>
-        <!-- Konten teks di sebelah kanan -->
         <div class="lg:flex-grow mt-5 md:mt-0 md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h2 class="text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100 mb-4">Vulnerability Assessment dan Pentest</h2>
-            <p class="leading-relaxed text-gray-700 dark:text-gray-300">
+            <h2 class="text-3xl font-bold leading-tight text-gray-800 mb-4">Vulnerability Assessment dan Pentest</h2>
+            <p class="leading-relaxed text-gray-700">
                 Melakukan evaluasi keamanan untuk mengidentifikasi dan mengatasi kelemahan sistem. Layanan ini penting untuk memastikan sistem Anda tetap aman dan terlindungi dari ancaman keamanan yang mungkin timbul.
             </p>
         </div>
     </div>
 </section>
 
-<section id="section-layanan" class="bg-gradient-to-b from-white to-gray-100 dark:from-slate-900 dark:to-slate-800 py-16">
+<section id="section-layanan" class="bg-gradient-to-b from-white to-gray-100 py-16">
     <div class="container mx-auto px-5">
         <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold leading-tight text-gray-900 dark:text-gray-100">Layanan Kami</h2>
+            <h2 class="text-3xl font-bold leading-tight text-gray-800">Layanan Kami</h2>
         </div>
         <div class="flex flex-wrap -m-4">
             <div class="p-4 md:w-1/2">
-                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
+                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white flex-shrink-0">
+                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
                             <i class="fas fa-file-signature text-lg"></i>
                         </div>
-                        <h3 class="text-gray-900 text-xl font-semibold title-font dark:text-gray-100">E-Sign Tanda Tangan Elektronik</h3>
+                        <h3 class="text-gray-800 text-xl font-semibold title-font">E-Sign Tanda Tangan Elektronik</h3>
                     </div>
                     <div class="flex-grow">
-                        <p class="leading-relaxed text-base dark:text-gray-300 text-gray-700">Tanda Tangan Elektronik memberikan keabsahan yang sama dengan tanda tangan manual.</p>
-                        <a href="/layanan/e-sign" class="mt-4 text-indigo-600 dark:text-indigo-400 inline-flex items-center hover:underline">Go
+                        <p class="leading-relaxed text-base text-gray-700">Tanda Tangan Elektronik memberikan keabsahan yang sama dengan tanda tangan manual.</p>
+                        <a href="/layanan/e-sign" class="mt-4 text-indigo-600 inline-flex items-center hover:underline">Go
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
@@ -106,16 +102,16 @@
                 </div>
             </div>
             <div class="p-4 md:w-1/2">
-                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
+                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white flex-shrink-0">
+                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
                             <i class="fas fa-shield-alt text-lg"></i>
                         </div>
-                        <h3 class="text-gray-900 text-xl font-semibold title-font dark:text-gray-100">Vulnerability Assessment dan Pentest</h3>
+                        <h3 class="text-gray-800 text-xl font-semibold title-font">Vulnerability Assessment dan Pentest</h3>
                     </div>
                     <div class="flex-grow">
-                        <p class="leading-relaxed text-base dark:text-gray-300 text-gray-700">Melakukan evaluasi keamanan untuk mengidentifikasi dan mengatasi kelemahan sistem.</p>
-                        <a href="/layanan/vulnerability-assessment" class="mt-4 text-indigo-600 dark:text-indigo-400 inline-flex items-center hover:underline">Go
+                        <p class="leading-relaxed text-base text-gray-700">Melakukan evaluasi keamanan untuk mengidentifikasi dan mengatasi kelemahan sistem.</p>
+                        <a href="/layanan/vulnerability-assessment" class="mt-4 text-indigo-600 inline-flex items-center hover:underline">Go
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
@@ -124,16 +120,16 @@
                 </div>
             </div>
             <div class="p-4 md:w-1/2">
-                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
+                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white flex-shrink-0">
+                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
                             <i class="fas fa-envelope text-lg"></i>
                         </div>
-                        <h3 class="text-gray-900 text-xl font-semibold title-font dark:text-gray-100">Penerbitan Email Kedinasan</h3>
+                        <h3 class="text-gray-800 text-xl font-semibold title-font">Penerbitan Email Kedinasan</h3>
                     </div>
                     <div class="flex-grow">
-                        <p class="leading-relaxed text-base dark:text-gray-300 text-gray-700">Penerbitan email resmi untuk keperluan dinas dan komunikasi formal.</p>
-                        <a href="/layanan/e-mail" class="mt-4 text-indigo-600 dark:text-indigo-400 inline-flex items-center hover:underline">Go
+                        <p class="leading-relaxed text-base text-gray-700">Penerbitan email resmi untuk keperluan dinas dan komunikasi formal.</p>
+                        <a href="/layanan/e-mail" class="mt-4 text-indigo-600 inline-flex items-center hover:underline">Go
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
@@ -142,16 +138,16 @@
                 </div>
             </div>
             <div class="p-4 md:w-1/2">
-                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
+                <div class="flex rounded-xl h-full bg-gradient-to-r from-indigo-50 to-indigo-100 p-8 flex-col shadow-lg hover:shadow-2xl transition-shadow transform hover:scale-105">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 text-white flex-shrink-0">
+                        <div class="w-12 h-12 mr-4 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-indigo-400 to-indigo-500 text-white flex-shrink-0">
                             <i class="fas fa-code-branch text-lg"></i>
                         </div>
-                        <h3 class="text-gray-900 text-xl font-semibold title-font dark:text-gray-100">Integrasi API - TTE</h3>
+                        <h3 class="text-gray-800 text-xl font-semibold title-font">Integrasi API - TTE</h3>
                     </div>
                     <div class="flex-grow">
-                        <p class="leading-relaxed text-base dark:text-gray-300 text-gray-700">Integrasi API untuk tanda tangan elektronik yang dapat digunakan di berbagai platform.</p>
-                        <a href="/layanan/api-tte" class="mt-4 text-indigo-600 dark:text-indigo-400 inline-flex items-center hover:underline">Go
+                        <p class="leading-relaxed text-base text-gray-700">Integrasi API untuk tanda tangan elektronik yang dapat digunakan di berbagai platform.</p>
+                        <a href="/layanan/api-tte" class="mt-4 text-indigo-600 inline-flex items-center hover:underline">Go
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                 <path d="M5 12h14M12 5l7 7-7 7"></path>
                             </svg>
@@ -162,9 +158,6 @@
         </div>
     </div>
 </section>
-
-
-
 
 @include('components.footer')
 
