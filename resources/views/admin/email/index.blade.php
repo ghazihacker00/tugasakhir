@@ -5,7 +5,7 @@
 @section('content')
 <div class="bg-gray-100 shadow-lg rounded-xl p-8">
     <div class="flex justify-between items-center mb-8">
-        <h2 class="text-4xl font-extrabold text-gray-900">Pengajuan E-Mail Requests</h2>
+        <h2 class="text-4xl font-extrabold text-gray-900">Pengajuan Layanan Surat Elektronik Resmi Kedinasan</h2>
     </div>
 
     @if (session('success'))

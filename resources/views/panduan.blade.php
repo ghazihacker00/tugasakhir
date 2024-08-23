@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan SOP Pengajuan</title>
+    <title>Daftar Dokumen</title>
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
@@ -13,7 +13,7 @@
     <div class="py-10 flex justify-center">
         <div class="bg-white shadow-lg rounded-lg p-8 max-w-4xl w-full">
             <h1 class="text-center text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                Daftar SOP Pengajuan
+            Daftar Dokumen
             </h1>
 
             <div class="overflow-x-auto">

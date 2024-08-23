@@ -5,7 +5,7 @@
 @section('content')
 <div class="bg-gray-100 shadow-lg rounded-xl p-8 transition duration-500 ease-in-out transform">
     <div class="flex justify-between items-center mb-8">
-        <h2 class="text-4xl font-extrabold text-gray-900">Pengajuan E-Sign Requests</h2>
+        <h2 class="text-4xl font-extrabold text-gray-900">Pengajuan Layanan Pemanfaatan Tandatangan Elektronik(TTE)</h2>
     </div>
 
     @if (session('success'))
