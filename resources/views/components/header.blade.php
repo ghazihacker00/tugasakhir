@@ -35,12 +35,12 @@
                         <a href="/layanan/api-tte" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Integrasi API-TTE</a>
                     </div>
                 </div>
-                <a href="/pengaduan" class="text-white hover:text-gray-300 transition">Helpdesk</a>
+                <a href="/pengaduan" class="text-white hover:text-gray-300 transition">Pengaduan</a>
                 <a href="/cek-tiket" class="text-white hover:text-gray-300 transition">Cek Status Tiket</a>
             </nav>
 
             <!-- Mobile Menu Button -->
-            <div class="md:hidden">
+            <div class="-mr-2 flex md:hidden">
                 <button @click="open = !open" class="bg-blue-600 p-2 rounded-md text-white hover:text-gray-300 hover:bg-blue-700 focus:outline-none">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
@@ -76,7 +76,7 @@
                     <a href="/layanan/api-tte" class="block px-4 py-2 hover:bg-blue-600">Integrasi API-TTE</a>
                 </div>
             </div>
-            <a href="/pengaduan" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Helpdesk</a>
+            <a href="/pengaduan" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Pengaduan</a>
             <a href="/cek-tiket" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Cek Status Tiket</a>
         </div>
     </div>
@@ -88,5 +88,4 @@
 </div>
 
 <!-- Alpine.js CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.x.x/cdn.min.js" defer></script>
-
+<script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>

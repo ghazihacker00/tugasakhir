@@ -61,5 +61,4 @@
 </div>
 
 <!-- Alpine.js CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.x.x/cdn.min.js" defer></script>
-
+<script src="//cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
