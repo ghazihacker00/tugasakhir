@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulir Pengaduan</title>
+    <title>Helpdesk</title>
     @vite('resources/css/app.css')
 </head>
 <body class="bg-gray-100">
@@ -14,7 +14,7 @@
     <div class="relative py-3 w-full max-w-4xl mx-auto">
         <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-lg"></div>
         <div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-lg sm:p-10">
-            <h2 class="text-3xl font-bold leading-tight text-center mb-4 text-gray-900">Formulir Pengaduan</h2>
+            <h2 class="text-3xl font-bold leading-tight text-center mb-4 text-gray-900">Helpdesk</h2>
             @if (session('success'))
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
                     <span class="block sm:inline">{{ session('success') }}</span>

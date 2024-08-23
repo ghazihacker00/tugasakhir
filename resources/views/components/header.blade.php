@@ -76,7 +76,7 @@
                     <a href="/layanan/api-tte" class="block px-4 py-2 hover:bg-blue-600">Integrasi API-TTE</a>
                 </div>
             </div>
-            <a href="/pengaduan" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Pengaduan</a>
+            <a href="/pengaduan" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Helpdesk</a>
             <a href="/cek-tiket" class="block text-white py-2 px-3 rounded-md text-base font-medium hover:bg-blue-700">Cek Status Tiket</a>
         </div>
     </div>
