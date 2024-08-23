@@ -40,7 +40,7 @@
             </nav>
 
             <!-- Mobile Menu Button -->
-            <div class="-mr-2 flex md:hidden">
+            <div class="md:hidden">
                 <button @click="open = !open" class="bg-blue-600 p-2 rounded-md text-white hover:text-gray-300 hover:bg-blue-700 focus:outline-none">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
