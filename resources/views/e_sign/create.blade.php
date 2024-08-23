@@ -23,28 +23,28 @@
             <form action="{{ route('e-sign.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="col-span-2">
+                    <div class="col-span-1 md:col-span-2">
                         <label for="nama_lengkap" class="block text-sm font-medium text-gray-700">Nama Lengkap (sesuai KTP)</label>
                         <input type="text" name="nama_lengkap" id="nama_lengkap" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('nama_lengkap') border-red-500 @enderror" value="{{ old('nama_lengkap') }}">
                         @error('nama_lengkap')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
+                    <div class="col-span-1">
                         <label for="nik_nip" class="block text-sm font-medium text-gray-700">NIK/NIP</label>
                         <input type="text" name="nik_nip" id="nik_nip" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('nik_nip') border-red-500 @enderror" value="{{ old('nik_nip') }}">
                         @error('nik_nip')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
+                    <div class="col-span-1">
                         <label for="jabatan" class="block text-sm font-medium text-gray-700">Jabatan</label>
                         <input type="text" name="jabatan" id="jabatan" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('jabatan') border-red-500 @enderror" value="{{ old('jabatan') }}">
                         @error('jabatan')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
+                    <div class="col-span-1">
                         <label for="pangkat_golongan_eselon" class="block text-sm font-medium text-gray-700">Pangkat/Golongan/Eselon</label>
                         <select name="pangkat_golongan_eselon" id="pangkat_golongan_eselon" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('pangkat_golongan_eselon') border-red-500 @enderror">
                             <option value="">Pilih Pangkat/Golongan/Eselon</option>
@@ -57,7 +57,7 @@
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
+                    <div class="col-span-1">
                         <label for="dinas_unit_kerja" class="block text-sm font-medium text-gray-700">Dinas/Unit Kerja</label>
                         <select name="dinas_unit_kerja" id="dinas_unit_kerja" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('dinas_unit_kerja') border-red-500 @enderror">
                             <option value="">Pilih Dinas/Unit Kerja</option>
@@ -70,7 +70,7 @@
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
+                    <div class="col-span-1">
                         <label for="instansi" class="block text-sm font-medium text-gray-700">Instansi</label>
                         <select name="instansi" id="instansi" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('instansi') border-red-500 @enderror">
                             <option value="Pemerintah Kota Cimahi" {{ old('instansi') == 'Pemerintah Kota Cimahi' ? 'selected' : '' }}>Pemerintah Kota Cimahi</option>
@@ -79,28 +79,28 @@
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div>
+                    <div class="col-span-1">
                         <label for="email_pemohon" class="block text-sm font-medium text-gray-700">Email Pemohon</label>
                         <input type="email" name="email_pemohon" id="email_pemohon" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('email_pemohon') border-red-500 @enderror" value="{{ old('email_pemohon') }}">
                         @error('email_pemohon')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-span-2">
+                    <div class="col-span-1 md:col-span-2">
                         <label for="telepon" class="block text-sm font-medium text-gray-700">No. Telepon/Whatsapp</label>
                         <input type="text" name="telepon" id="telepon" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('telepon') border-red-500 @enderror" value="{{ old('telepon') }}">
                         @error('telepon')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-span-2">
+                    <div class="col-span-1 md:col-span-2">
                         <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
                         <textarea name="alamat" id="alamat" rows="3" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('alamat') border-red-500 @enderror">{{ old('alamat') }}</textarea>
                         @error('alamat')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="col-span-2">
+                    <div class="col-span-1 md:col-span-2">
                         <label for="surat_permohonan" class="block text-sm font-medium text-gray-700">Upload Surat Permohonan</label>
                         <input type="file" name="surat_permohonan" id="surat_permohonan" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md @error('surat_permohonan') border-red-500 @enderror">
                         @error('surat_permohonan')
